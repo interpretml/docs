@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -50,7 +50,7 @@
     <script src="_static/katex_autorenderer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -59,6 +59,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation-guide.html" />
     <link rel="prev" title="Interactivity" href="framework.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -78,6 +79,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
@@ -85,7 +90,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -230,6 +235,23 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Development Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation-guide.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging-guide.html">
+   Logging and Debugging
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -315,7 +337,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
@@ -374,22 +396,22 @@
 <h2>Install with every dependency (default)<a class="headerlink" href="#install-with-every-dependency-default" title="Permalink to this headline">¶</a></h2>
 <p>The package <code class="docutils literal notranslate"><span class="pre">interpret</span></code> installs every dependency needed to run any part of the package.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="9ff7347a-d0d1-498b-81d5-c0fdbdf81753" name="4d81a6f0-26bc-4d37-b70c-b241495043e5" type="radio">
-</input><label class="tabbed-label" for="9ff7347a-d0d1-498b-81d5-c0fdbdf81753">
+<input checked="checked" id="0f3b9b81-0fa4-4eae-865b-a902818bbf53" name="dc9b17d7-f72b-4d35-8a05-9021b3df0d50" type="radio">
+</input><label class="tabbed-label" for="0f3b9b81-0fa4-4eae-865b-a902818bbf53">
 pip</label><div class="tabbed-content docutils">
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install interpret
 </pre></div>
 </div>
 </div>
-<input id="dcc37329-a9cc-4ae2-89db-d30ff94059d4" name="4d81a6f0-26bc-4d37-b70c-b241495043e5" type="radio">
-</input><label class="tabbed-label" for="dcc37329-a9cc-4ae2-89db-d30ff94059d4">
+<input id="4c44c778-d36d-4e28-9fdf-cbd6152ad755" name="dc9b17d7-f72b-4d35-8a05-9021b3df0d50" type="radio">
+</input><label class="tabbed-label" for="4c44c778-d36d-4e28-9fdf-cbd6152ad755">
 conda</label><div class="tabbed-content docutils">
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install -c interpretml interpret
 </pre></div>
 </div>
 </div>
-<input id="097f0de5-959b-4b3e-b6fc-8c2bc22ea787" name="4d81a6f0-26bc-4d37-b70c-b241495043e5" type="radio">
-</input><label class="tabbed-label" for="097f0de5-959b-4b3e-b6fc-8c2bc22ea787">
+<input id="322ef805-990b-4472-9c62-f6fecc22873e" name="dc9b17d7-f72b-4d35-8a05-9021b3df0d50" type="radio">
+</input><label class="tabbed-label" for="322ef805-990b-4472-9c62-f6fecc22873e">
 source</label><div class="tabbed-content docutils">
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/interpretml/interpret.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> interpret/scripts <span class="o">&amp;&amp;</span> make install
 </pre></div>
@@ -401,22 +423,22 @@ source</label><div class="tabbed-content docutils">
 <h2>Install with no dependencies<a class="headerlink" href="#install-with-no-dependencies" title="Permalink to this headline">¶</a></h2>
 <p>When you don’t want any dependencies to automatically install and you only need the code, install the package <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> instead. The package <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> is a zero-dependency install.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ed897287-19d4-49c2-8f9d-50d66f0aac15" name="b5092fbd-adcf-493a-a181-2cd8c0e1927d" type="radio">
-</input><label class="tabbed-label" for="ed897287-19d4-49c2-8f9d-50d66f0aac15">
+<input checked="checked" id="21d57fc1-b19e-4e35-ae31-75c9435d5afe" name="586c33ad-0290-49f9-b07c-7a30fdd7029e" type="radio">
+</input><label class="tabbed-label" for="21d57fc1-b19e-4e35-ae31-75c9435d5afe">
 pip</label><div class="tabbed-content docutils">
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install interpret-core
 </pre></div>
 </div>
 </div>
-<input id="6792d007-0524-479b-9942-e1a0007347db" name="b5092fbd-adcf-493a-a181-2cd8c0e1927d" type="radio">
-</input><label class="tabbed-label" for="6792d007-0524-479b-9942-e1a0007347db">
+<input id="e46e8aeb-847d-40b7-83e9-f26b2d619000" name="586c33ad-0290-49f9-b07c-7a30fdd7029e" type="radio">
+</input><label class="tabbed-label" for="e46e8aeb-847d-40b7-83e9-f26b2d619000">
 conda</label><div class="tabbed-content docutils">
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install -c interpretml interpret-core
 </pre></div>
 </div>
 </div>
-<input id="de087461-4337-41eb-a4ef-994a32ead802" name="b5092fbd-adcf-493a-a181-2cd8c0e1927d" type="radio">
-</input><label class="tabbed-label" for="de087461-4337-41eb-a4ef-994a32ead802">
+<input id="b43006a7-2236-480e-93bb-bbd0983230fc" name="586c33ad-0290-49f9-b07c-7a30fdd7029e" type="radio">
+</input><label class="tabbed-label" for="b43006a7-2236-480e-93bb-bbd0983230fc">
 source</label><div class="tabbed-content docutils">
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/interpretml/interpret.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> interpret/scripts <span class="o">&amp;&amp;</span> make install-core
 </pre></div>
@@ -533,15 +555,36 @@ to initialize both.</p>
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="framework.html" title="previous page">Interactivity</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="framework.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Interactivity</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="installation-guide.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Installation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
