@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Interpret</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,54 +20,70 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/override.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/katex-math.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script src="_static/katex.min.js"></script>
+    <script src="_static/auto-render.min.js"></script>
     <script src="_static/katex_autorenderer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Glassbox Models" href="glassbox.html" />
     <link rel="prev" title="What the FAQ" href="what-the-faq.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +92,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +111,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Welcome to The Much Anticipated Interpret Documentation!
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to The Much Anticipated Interpret Documentation!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Quick Overview
  </span>
@@ -140,7 +160,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Algorithms
  </span>
@@ -211,7 +231,41 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More EBMs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ebm-internals.html">
+   EBM internals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ebm-internals-regression.html">
+     EBM Internals - Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ebm-internals-classification.html">
+     EBM Internals - Binary classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ebm-internals-multiclass.html">
+     EBM Internals - Multiclass
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Framework
  </span>
@@ -223,7 +277,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Deployment Guide
  </span>
@@ -235,7 +289,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Development Guide
  </span>
@@ -254,91 +308,135 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/faq.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/faq.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/faq.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Interpret
@@ -447,19 +545,143 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Interpret</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Interpret
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-doesn-t-anything-happen-when-i-run-show">
+     Why doesn’t anything happen when I run show(…)?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-i-generate-the-full-interpret-dashboard-instead-of-the-small-single-explanation-dropdown">
+     How do I generate the full interpret dashboard instead of the small single-explanation dropdown?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-extract-the-underlying-data-used-to-visualize-explanations">
+     How can I extract the underlying data used to visualize explanations?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-save-an-explanation-graph-to-disk">
+     How can I save an explanation graph to disk?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-does-the-density-at-the-bottom-of-each-graph-mean">
+     What does the ‘density’ at the bottom of each graph mean?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#does-interpret-support-explainability-for-image-and-text-data">
+     Does interpret support explainability for image and text data?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-i-install-just-a-single-explainer-without-any-other-dependencies">
+     How do I install just a single explainer without any other dependencies?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-aren-t-the-feature-names-showing-in-graphs">
+     Why aren’t the feature names showing in graphs?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ebm">
+   EBM
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#should-i-be-parameter-tuning-ebms-and-if-so-what-parameters-should-i-tune">
+     Should I be parameter tuning EBMs (and if so, what parameters should I tune)?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-does-the-error-bar-on-an-ebm-graph-mean-and-how-are-they-calculated">
+     What does the error bar on an EBM graph mean, and how are they calculated?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-you-have-p-values-for-significance-of-ebm-terms">
+     Do you have p-values for significance of EBM terms?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-s-the-difference-between-ebms-in-classification-and-regression">
+     What’s the difference between EBMs in classification and regression?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-edit-ebm-models-to-remove-unwanted-learned-effects">
+     How can I edit EBM models to remove unwanted learned effects?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-we-enforce-monotonicity-for-individual-ebm-terms">
+     Can we enforce monotonicity for individual EBM terms?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-we-serialize-ebms-and-use-them-in-production">
+     How can we serialize EBMs and use them in production?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support">
+   Support
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-need-help-how-do-i-get-in-touch">
+     I need help, how do I get in touch?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-have-a-great-idea-how-can-i-contribute">
+     I have a great idea, how can I contribute?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="interpret">
-<h1>Interpret<a class="headerlink" href="#interpret" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="why-doesn-t-anything-happen-when-i-run-show">
-<h2>Why doesn’t anything happen when I run show(…)?<a class="headerlink" href="#why-doesn-t-anything-happen-when-i-run-show" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="interpret">
+<h1>Interpret<a class="headerlink" href="#interpret" title="Permalink to this headline">#</a></h1>
+<section id="why-doesn-t-anything-happen-when-i-run-show">
+<h2>Why doesn’t anything happen when I run show(…)?<a class="headerlink" href="#why-doesn-t-anything-happen-when-i-run-show" title="Permalink to this headline">#</a></h2>
 <p>Interpret’s visualizations are designed to work best in Jupyter notebook-like environments (like Jupyter notebook, VS Code, Colab, …). If you’re running show() from a command line script, you may not be able to render visualizations directly – check the printed console output for a link to open in a browser.</p>
 <p>By default, interpret hosts visualizations on a local web server using Plotly Dash. In some restricted environments, where applications are not allowed to host a local web server, we embed visualizations directly into the notebook. If Interpret did not automatically detect and switch the rendering mode, you can manually embed visualizations in restricted environments with the following code:</p>
 <div class="cell docutils container">
@@ -473,9 +695,9 @@
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">InlineProvider</span></code> is compatible with a broader range of environments than the default rendering logic in Interpret. However, <em>warning</em>: you may experience slower performance when calling <code class="docutils literal notranslate"><span class="pre">show()</span></code>, and the full interpret dashboard is currently unsupported with <code class="docutils literal notranslate"><span class="pre">InlineProvider</span></code>.</p>
-</div>
-<div class="section" id="how-do-i-generate-the-full-interpret-dashboard-instead-of-the-small-single-explanation-dropdown">
-<h2>How do I generate the full interpret dashboard instead of the small single-explanation dropdown?<a class="headerlink" href="#how-do-i-generate-the-full-interpret-dashboard-instead-of-the-small-single-explanation-dropdown" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-do-i-generate-the-full-interpret-dashboard-instead-of-the-small-single-explanation-dropdown">
+<h2>How do I generate the full interpret dashboard instead of the small single-explanation dropdown?<a class="headerlink" href="#how-do-i-generate-the-full-interpret-dashboard-instead-of-the-small-single-explanation-dropdown" title="Permalink to this headline">#</a></h2>
 <p>Make sure you are passing in a <em>list</em> of explanations to show. Note that you can also pass in a single explanation wrapped in a list. Ex:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">interpret</span> <span class="kn">import</span> <span class="n">show</span>
 
@@ -483,13 +705,13 @@
 <span class="n">show</span><span class="p">([</span> <span class="n">ebm_local</span> <span class="p">])</span> <span class="c1"># Produces interpret dashboard</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="how-can-i-extract-the-underlying-data-used-to-visualize-explanations">
-<h2>How can I extract the underlying data used to visualize explanations?<a class="headerlink" href="#how-can-i-extract-the-underlying-data-used-to-visualize-explanations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-can-i-extract-the-underlying-data-used-to-visualize-explanations">
+<h2>How can I extract the underlying data used to visualize explanations?<a class="headerlink" href="#how-can-i-extract-the-underlying-data-used-to-visualize-explanations" title="Permalink to this headline">#</a></h2>
 <p>Every explanation object in interpret supports a <code class="docutils literal notranslate"><span class="pre">.data()</span></code> method, which returns a JSON-compatible dictionary of the underlying data used to produce the visualizations. Most explanations contain many visualizations – for example, <code class="docutils literal notranslate"><span class="pre">explain_local()</span></code> calls will produce visualizations for each individual instance passed to the function. <code class="docutils literal notranslate"><span class="pre">data</span></code> takes in a single parameter which indexes the explanation object and returns the data used for that individual explanation (ex: explanation.data(0) returns the data used for the first visualization in the object). To return data used for <em>all</em> visualizations, use the <code class="docutils literal notranslate"><span class="pre">-1</span></code> key (explanation.data(-1)).</p>
-</div>
-<div class="section" id="how-can-i-save-an-explanation-graph-to-disk">
-<h2>How can I save an explanation graph to disk?<a class="headerlink" href="#how-can-i-save-an-explanation-graph-to-disk" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-can-i-save-an-explanation-graph-to-disk">
+<h2>How can I save an explanation graph to disk?<a class="headerlink" href="#how-can-i-save-an-explanation-graph-to-disk" title="Permalink to this headline">#</a></h2>
 <p>Every explanation graph is a Plotly object, and can be saved to disk using the camera icon in the UI:</p>
 <p><img alt="Save plotly graph" src="_images/Save_plotly_graph.png" /></p>
 <p>or with the <a class="reference external" href="https://plotly.com/python/static-image-export/">Plotly Static Image Export</a> tools. You can access individual Plotly figures with:</p>
@@ -504,32 +726,32 @@
     <span class="n">plotly_fig</span><span class="o">.</span><span class="n">write_image</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;images/fig_</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="what-does-the-density-at-the-bottom-of-each-graph-mean">
-<h2>What does the ‘density’ at the bottom of each graph mean?<a class="headerlink" href="#what-does-the-density-at-the-bottom-of-each-graph-mean" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-does-the-density-at-the-bottom-of-each-graph-mean">
+<h2>What does the ‘density’ at the bottom of each graph mean?<a class="headerlink" href="#what-does-the-density-at-the-bottom-of-each-graph-mean" title="Permalink to this headline">#</a></h2>
 <p>The density is a histogram describing the data distribution for that feature (estimated using any data passed into the <code class="docutils literal notranslate"><span class="pre">explain_*</span></code> methods). It is often useful to understand how much data is in each region of the feature space when visualizing an explanation – models can perform very differently with large and small samples.</p>
-</div>
-<div class="section" id="does-interpret-support-explainability-for-image-and-text-data">
-<h2>Does interpret support explainability for image and text data?<a class="headerlink" href="#does-interpret-support-explainability-for-image-and-text-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="does-interpret-support-explainability-for-image-and-text-data">
+<h2>Does interpret support explainability for image and text data?<a class="headerlink" href="#does-interpret-support-explainability-for-image-and-text-data" title="Permalink to this headline">#</a></h2>
 <p>Not yet, but keep an eye out for future releases!</p>
-</div>
-<div class="section" id="how-do-i-install-just-a-single-explainer-without-any-other-dependencies">
-<h2>How do I install just a single explainer without any other dependencies?<a class="headerlink" href="#how-do-i-install-just-a-single-explainer-without-any-other-dependencies" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-do-i-install-just-a-single-explainer-without-any-other-dependencies">
+<h2>How do I install just a single explainer without any other dependencies?<a class="headerlink" href="#how-do-i-install-just-a-single-explainer-without-any-other-dependencies" title="Permalink to this headline">#</a></h2>
 <p>This is possible by installing directly from the <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> base package for advanced users. For example, if you want to install EBM without any other explainers, run the following codeblock below:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install interpret-core<span class="o">[</span>required,ebm<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>interpret-core<span class="o">[</span>required,ebm<span class="o">]</span>
 </pre></div>
 </div>
 <p>The various installation options provided by <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> are specified in the interpret-core <a class="reference external" href="https://github.com/interpretml/interpret/blob/d1ee9ae602d7086ed4074092de4041f98efe0d68/python/interpret-core/setup.py#L54">setup.py</a> file. The <code class="docutils literal notranslate"><span class="pre">required</span></code> tag is generally recommended for all installs.</p>
-</div>
-<div class="section" id="why-aren-t-the-feature-names-showing-in-graphs">
-<h2>Why aren’t the feature names showing in graphs?<a class="headerlink" href="#why-aren-t-the-feature-names-showing-in-graphs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="why-aren-t-the-feature-names-showing-in-graphs">
+<h2>Why aren’t the feature names showing in graphs?<a class="headerlink" href="#why-aren-t-the-feature-names-showing-in-graphs" title="Permalink to this headline">#</a></h2>
 <p>If you are passing a numpy array to an explainer, make sure that the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> property is set (either by passing at initialization, or manually setting before calling an explain function). This should work automatically when using pandas dataframes.</p>
-</div>
-</div>
-<div class="section" id="ebm">
-<h1>EBM<a class="headerlink" href="#ebm" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="should-i-be-parameter-tuning-ebms-and-if-so-what-parameters-should-i-tune">
-<h2>Should I be parameter tuning EBMs (and if so, what parameters should I tune)?<a class="headerlink" href="#should-i-be-parameter-tuning-ebms-and-if-so-what-parameters-should-i-tune" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ebm">
+<h1>EBM<a class="headerlink" href="#ebm" title="Permalink to this headline">#</a></h1>
+<section id="should-i-be-parameter-tuning-ebms-and-if-so-what-parameters-should-i-tune">
+<h2>Should I be parameter tuning EBMs (and if so, what parameters should I tune)?<a class="headerlink" href="#should-i-be-parameter-tuning-ebms-and-if-so-what-parameters-should-i-tune" title="Permalink to this headline">#</a></h2>
 <p>In general, the default parameters for EBMs should perform reasonably well on most problems. We recommend training a model with defaults and looking through the learned functions to catch abnormal behavior before parameter tuning – oftentimes, these graphs help indicate which parameters to tune. Here’s some general recommendations:</p>
 <ul class="simple">
 <li><p>To produce the best models, we generally recommend setting <code class="docutils literal notranslate"><span class="pre">outer_bags</span></code> and <code class="docutils literal notranslate"><span class="pre">inner_bags</span></code> to 25 or more each. This will significantly slow down the training time of the algorithm, and may be infeasible on larger datasets, but tends to produce smoother graphs with marginally higher accuracy.</p></li>
@@ -543,51 +765,51 @@
 <li><p>If many of the included interaction terms are significant (e.g. learning large values or ranking highly on the overall importance list), there’s a chance the 10 interaction terms included by default is insufficient for your dataset. Consider increasing this number.</p></li>
 <li><p>For general tuning, we recommend sweeping <code class="docutils literal notranslate"><span class="pre">max_bins</span></code> with values between 32 and 1024, and <code class="docutils literal notranslate"><span class="pre">max_leaves</span></code> from 2 to 5. These improvements are normally marginal, but may help significantly on some datasets.</p></li>
 </ul>
-</div>
-<div class="section" id="what-does-the-error-bar-on-an-ebm-graph-mean-and-how-are-they-calculated">
-<h2>What does the error bar on an EBM graph mean, and how are they calculated?<a class="headerlink" href="#what-does-the-error-bar-on-an-ebm-graph-mean-and-how-are-they-calculated" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-does-the-error-bar-on-an-ebm-graph-mean-and-how-are-they-calculated">
+<h2>What does the error bar on an EBM graph mean, and how are they calculated?<a class="headerlink" href="#what-does-the-error-bar-on-an-ebm-graph-mean-and-how-are-they-calculated" title="Permalink to this headline">#</a></h2>
 <p>The error bars are rough estimates of the uncertainty of the model in each region of the feature space. A large error bar means that the learned function may have changed substantially with minor changes to the training data, and indicates that the interpretation of the model in that region should be treated with more skepticisim.</p>
 <p>The size of the error bar is typically determined by two factors – the amount of training data in that region of the feature space, and the inherent uncertainty of the learned model. For example, consider this graph of the learned “Age” feature from the Adult income dataset:</p>
 <p><img alt="Age graph" src="_images/Age_graph_adult.png" /></p>
 <p>On the right side of the graph (Ages 70+), the model predictions become unstable, and the error bars become much larger to indicate this uncertainty. From the density graph at the bottom, we can see that this is likely due to the small number of samples in this area.</p>
-<p>The error estimates are derived through <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">bagging</a>. By default, EBM trains 8 different mini-EBMs on random 85% subsamples of the training dataset. The number of mini-EBMs trained is controlled by the <code class="docutils literal notranslate"><span class="pre">outer_bags</span></code> parameter, and the proportion of data sampled is 1 - <code class="docutils literal notranslate"><span class="pre">validation_size</span></code>. The outputs of these models are averaged together to produce the final EBM, and the standard deviation of estimates for each region of the graph is published as the error bar. You can programmatically access the error bar sizes from the <code class="docutils literal notranslate"><span class="pre">term_standard_deviations_</span></code> property on any EBM.</p>
-</div>
-<div class="section" id="do-you-have-p-values-for-significance-of-ebm-terms">
-<h2>Do you have p-values for significance of EBM terms?<a class="headerlink" href="#do-you-have-p-values-for-significance-of-ebm-terms" title="Permalink to this headline">¶</a></h2>
+<p>The error estimates are derived through <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">bagging</a>. By default, EBM trains 8 different mini-EBMs on random 85% subsamples of the training dataset. The number of mini-EBMs trained is controlled by the <code class="docutils literal notranslate"><span class="pre">outer_bags</span></code> parameter, and the proportion of data sampled is 1 - <code class="docutils literal notranslate"><span class="pre">validation_size</span></code>. The outputs of these models are averaged together to produce the final EBM, and the standard deviation of estimates for each region of the graph is published as the error bar. You can programmatically access the error bar sizes from the <code class="docutils literal notranslate"><span class="pre">standard_deviations_</span></code> property on any EBM.</p>
+</section>
+<section id="do-you-have-p-values-for-significance-of-ebm-terms">
+<h2>Do you have p-values for significance of EBM terms?<a class="headerlink" href="#do-you-have-p-values-for-significance-of-ebm-terms" title="Permalink to this headline">#</a></h2>
 <p>Not yet, though this is an area of active research. If you’re interested in discussing this or helping us figure it out, reach out!</p>
-</div>
-<div class="section" id="what-s-the-difference-between-ebms-in-classification-and-regression">
-<h2>What’s the difference between EBMs in classification and regression?<a class="headerlink" href="#what-s-the-difference-between-ebms-in-classification-and-regression" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-s-the-difference-between-ebms-in-classification-and-regression">
+<h2>What’s the difference between EBMs in classification and regression?<a class="headerlink" href="#what-s-the-difference-between-ebms-in-classification-and-regression" title="Permalink to this headline">#</a></h2>
 <p>The differences are largely analogous to the differences between <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_regression">linear regression</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>. Like logistic regression, EBMs need to be adapted to the classification setting through the use of the <a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_function">logistic link function</a>.</p>
 <p>This link is used because probabilities are not additive – two features cannot each contribute +0.6 probability to a prediction, as the resulting final probability of 1.2 is undefined. The logistic link allows the models to train in the logit space – where the contribution of each feature can be additive – and convert back to a bounded probability at prediction time. Therefore, when interpreting the graphs of an <code class="docutils literal notranslate"><span class="pre">ExplainableBoostingClassifier</span></code>, it’s important to remember that the y-axis values are in <a class="reference external" href="https://en.wikipedia.org/wiki/Logit">logits</a>. The interpretation of the shape is generally the same – positive values push the prediction towards a positive label for that class. However, because these graphs are in logarithm space, differences of +1 or +2 are quite significant.</p>
 <p>In the regression setting, the interpretation is simpler: the y-axis values are directly in the units of the target. For example, if you are training on housing prices, the y-axis for each graph will represent exactly how many dollars that feature contributes to the final price of a model – no additional transformations needed!</p>
-</div>
-<div class="section" id="how-can-i-edit-ebm-models-to-remove-unwanted-learned-effects">
-<h2>How can I edit EBM models to remove unwanted learned effects?<a class="headerlink" href="#how-can-i-edit-ebm-models-to-remove-unwanted-learned-effects" title="Permalink to this headline">¶</a></h2>
-<p>The final EBM models are stored as numpy arrays in the <code class="docutils literal notranslate"><span class="pre">additive_terms_</span></code> property. Indexing this array returns the function learned for a specific feature in the EBM – for example, <code class="docutils literal notranslate"><span class="pre">ebm.additive_terms_[0]</span></code> will return the array for the first feature. Editing this array directly will change all predictions made by the model for that corresponding region of the graph. A nicer API for this with more granular controls will be introduced shortly!</p>
-</div>
-<div class="section" id="can-we-enforce-monotonicity-for-individual-ebm-terms">
-<h2>Can we enforce monotonicity for individual EBM terms?<a class="headerlink" href="#can-we-enforce-monotonicity-for-individual-ebm-terms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-can-i-edit-ebm-models-to-remove-unwanted-learned-effects">
+<h2>How can I edit EBM models to remove unwanted learned effects?<a class="headerlink" href="#how-can-i-edit-ebm-models-to-remove-unwanted-learned-effects" title="Permalink to this headline">#</a></h2>
+<p>The final EBM models are stored as numpy arrays in the <code class="docutils literal notranslate"><span class="pre">terms_scores_</span></code> property. Indexing this array returns the function learned for a specific term in the EBM – for example, <code class="docutils literal notranslate"><span class="pre">ebm.terms_scores_[0]</span></code> will return the array for the first term. Editing this array directly will change all predictions made by the model for that corresponding region of the graph. A nicer API for this with more granular controls will be introduced shortly!</p>
+</section>
+<section id="can-we-enforce-monotonicity-for-individual-ebm-terms">
+<h2>Can we enforce monotonicity for individual EBM terms?<a class="headerlink" href="#can-we-enforce-monotonicity-for-individual-ebm-terms" title="Permalink to this headline">#</a></h2>
 <p>We currently cannot do this through training, but it is possible to enforce monotonicity through postprocessing a graph. We generally recommend using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.isotonic.IsotonicRegression.html#sklearn.isotonic.IsotonicRegression">isotonic regression</a> on each graph output to force positive or negative monotonicity. Code examples coming soon!</p>
-</div>
-<div class="section" id="how-can-we-serialize-ebms-and-use-them-in-production">
-<h2>How can we serialize EBMs and use them in production?<a class="headerlink" href="#how-can-we-serialize-ebms-and-use-them-in-production" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-can-we-serialize-ebms-and-use-them-in-production">
+<h2>How can we serialize EBMs and use them in production?<a class="headerlink" href="#how-can-we-serialize-ebms-and-use-them-in-production" title="Permalink to this headline">#</a></h2>
 <p>For full functionality, we recommend using <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle</a> to serialize and deserialize EBM objects. Explanations can be serialized as JSON through the <code class="docutils literal notranslate"><span class="pre">data</span></code> method.</p>
 <p>Thanks to Github user <a class="reference external" href="https://github.com/MainRo">&#64;MainRo</a>, there is now an <code class="docutils literal notranslate"><span class="pre">ebm2onnx</span></code> package available which enables high speed inference on EBM objects through ONNX compatible runtimes. Check out the package here: <a class="reference external" href="https://github.com/SoftAtHome/ebm2onnx/">https://github.com/SoftAtHome/ebm2onnx/</a> and install from PyPi via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ebm2onnx</span></code></p>
-</div>
-</div>
-<div class="section" id="support">
-<h1>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="i-need-help-how-do-i-get-in-touch">
-<h2>I need help, how do I get in touch?<a class="headerlink" href="#i-need-help-how-do-i-get-in-touch" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="support">
+<h1>Support<a class="headerlink" href="#support" title="Permalink to this headline">#</a></h1>
+<section id="i-need-help-how-do-i-get-in-touch">
+<h2>I need help, how do I get in touch?<a class="headerlink" href="#i-need-help-how-do-i-get-in-touch" title="Permalink to this headline">#</a></h2>
 <p>For most questions we recommend raising a <a class="reference external" href="https://github.com/interpretml/interpret/issues">GitHub issue</a>. Solving issues on GitHub means that other users like yourself can benefit from the same solutions. For anything else (or questions that need to be kept private), feel free to send us an email at <a class="reference external" href="mailto:interpret&#37;&#52;&#48;microsoft&#46;com">interpret<span>&#64;</span>microsoft<span>&#46;</span>com</a> .</p>
-</div>
-<div class="section" id="i-have-a-great-idea-how-can-i-contribute">
-<h2>I have a great idea, how can I contribute?<a class="headerlink" href="#i-have-a-great-idea-how-can-i-contribute" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="i-have-a-great-idea-how-can-i-contribute">
+<h2>I have a great idea, how can I contribute?<a class="headerlink" href="#i-have-a-great-idea-how-can-i-contribute" title="Permalink to this headline">#</a></h2>
 <p>If you have code you’d like to commit, make sure you read the <a class="reference external" href="https://github.com/interpretml/interpret/blob/master/CONTRIBUTING.md">contributing guidelines</a>, and send us a pull request.</p>
 <p>If you’d like to request a new feature or discuss any ideas, just raise a <a class="reference external" href="https://github.com/interpretml/interpret/issues">GitHub issue</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -601,7 +823,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -611,54 +833,48 @@
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="what-the-faq.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">What the FAQ</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="what-the-faq.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">What the FAQ</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="glassbox.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Glassbox Models</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="glassbox.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Glassbox Models</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By InterpretML Team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The InterpretML Contributors<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

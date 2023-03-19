@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Installation</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,54 +20,70 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/override.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/katex-math.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script src="_static/katex.min.js"></script>
+    <script src="_static/auto-render.min.js"></script>
     <script src="_static/katex_autorenderer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Installation" href="installation-guide.html" />
     <link rel="prev" title="Interactivity" href="framework.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +92,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +111,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Welcome to The Much Anticipated Interpret Documentation!
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to The Much Anticipated Interpret Documentation!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Quick Overview
  </span>
@@ -140,7 +160,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Algorithms
  </span>
@@ -211,7 +231,41 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More EBMs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ebm-internals.html">
+   EBM internals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ebm-internals-regression.html">
+     EBM Internals - Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ebm-internals-classification.html">
+     EBM Internals - Binary classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ebm-internals-multiclass.html">
+     EBM Internals - Multiclass
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Framework
  </span>
@@ -223,7 +277,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Deployment Guide
  </span>
@@ -235,7 +289,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Development Guide
  </span>
@@ -254,91 +308,135 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/deployment-guide.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/deployment-guide.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/deployment-guide.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Installation
@@ -380,86 +478,131 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Installation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Installation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-with-every-dependency-default">
+     Install with every dependency (default)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-with-no-dependencies">
+     Install with no dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-with-some-official-dependencies-pip">
+     Install with some official dependencies (pip)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exposing-visualizations">
+   Exposing Visualizations
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dash-renderer">
+     Dash Renderer
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-renderer">
+     Inline Renderer
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h1>
 <p>The package <code class="docutils literal notranslate"><span class="pre">interpret</span></code> is handy for data scientists in the prototyping and model building phase. However the number of dependencies required is exhaustive, and for production environments it’s often better to select only the components you need for installation. Sometimes you’ll also have a better understanding of what dependency versions can work with <code class="docutils literal notranslate"><span class="pre">interpret</span></code> and your environment, even if we don’t officially support it. As such we offer options <code class="docutils literal notranslate"><span class="pre">interpret</span></code> and <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> for both scenarios.</p>
-<div class="section" id="install-with-every-dependency-default">
-<h2>Install with every dependency (default)<a class="headerlink" href="#install-with-every-dependency-default" title="Permalink to this headline">¶</a></h2>
+<section id="install-with-every-dependency-default">
+<h2>Install with every dependency (default)<a class="headerlink" href="#install-with-every-dependency-default" title="Permalink to this headline">#</a></h2>
 <p>The package <code class="docutils literal notranslate"><span class="pre">interpret</span></code> installs every dependency needed to run any part of the package.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="0f3b9b81-0fa4-4eae-865b-a902818bbf53" name="dc9b17d7-f72b-4d35-8a05-9021b3df0d50" type="radio">
-</input><label class="tabbed-label" for="0f3b9b81-0fa4-4eae-865b-a902818bbf53">
-pip</label><div class="tabbed-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install interpret
-</pre></div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="cac82258-a8b1-4741-afa4-9bb722367800" name="dd8c5eca-2a78-4da4-ab8f-2763eb6ec589" type="radio">
+</input><label class="sd-tab-label" for="cac82258-a8b1-4741-afa4-9bb722367800">
+pip</label><div class="sd-tab-content docutils">
+<p>pip install interpret</p>
+</div>
+<input id="aef3784b-4acd-4d25-8315-5ca6aa7409db" name="dd8c5eca-2a78-4da4-ab8f-2763eb6ec589" type="radio">
+</input><label class="sd-tab-label" for="aef3784b-4acd-4d25-8315-5ca6aa7409db">
+conda</label><div class="sd-tab-content docutils">
+<p>conda install -c conda-forge interpret</p>
+</div>
+<input id="c282a09b-1c85-4950-894a-cbbedb9ae5e9" name="dd8c5eca-2a78-4da4-ab8f-2763eb6ec589" type="radio">
+</input><label class="sd-tab-label" for="c282a09b-1c85-4950-894a-cbbedb9ae5e9">
+source</label><div class="sd-tab-content docutils">
+<p>git clone <a class="reference external" href="https://github.com/interpretml/interpret.git">https://github.com/interpretml/interpret.git</a> &amp;&amp; cd interpret/scripts &amp;&amp; make install</p>
 </div>
 </div>
-<input id="4c44c778-d36d-4e28-9fdf-cbd6152ad755" name="dc9b17d7-f72b-4d35-8a05-9021b3df0d50" type="radio">
-</input><label class="tabbed-label" for="4c44c778-d36d-4e28-9fdf-cbd6152ad755">
-conda</label><div class="tabbed-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge interpret
-</pre></div>
-</div>
-</div>
-<input id="322ef805-990b-4472-9c62-f6fecc22873e" name="dc9b17d7-f72b-4d35-8a05-9021b3df0d50" type="radio">
-</input><label class="tabbed-label" for="322ef805-990b-4472-9c62-f6fecc22873e">
-source</label><div class="tabbed-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/interpretml/interpret.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> interpret/scripts <span class="o">&amp;&amp;</span> make install
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="install-with-no-dependencies">
-<h2>Install with no dependencies<a class="headerlink" href="#install-with-no-dependencies" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-with-no-dependencies">
+<h2>Install with no dependencies<a class="headerlink" href="#install-with-no-dependencies" title="Permalink to this headline">#</a></h2>
 <p>When you don’t want any dependencies to automatically install and you only need the code, install the package <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> instead. The package <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> is a zero-dependency install.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="21d57fc1-b19e-4e35-ae31-75c9435d5afe" name="586c33ad-0290-49f9-b07c-7a30fdd7029e" type="radio">
-</input><label class="tabbed-label" for="21d57fc1-b19e-4e35-ae31-75c9435d5afe">
-pip</label><div class="tabbed-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install interpret-core
-</pre></div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="682f79cb-2706-443f-97d0-bf0c9be96c46" name="5361a328-2560-4a81-9df1-e2af99012539" type="radio">
+</input><label class="sd-tab-label" for="682f79cb-2706-443f-97d0-bf0c9be96c46">
+pip</label><div class="sd-tab-content docutils">
+<p>pip install interpret-core</p>
+</div>
+<input id="04cd063a-c50d-468c-9231-1988049c1a8d" name="5361a328-2560-4a81-9df1-e2af99012539" type="radio">
+</input><label class="sd-tab-label" for="04cd063a-c50d-468c-9231-1988049c1a8d">
+conda</label><div class="sd-tab-content docutils">
+<p>conda install -c conda-forge interpret-core</p>
+</div>
+<input id="56d6270a-71fe-4d46-8d5c-05b7e4d7b5a5" name="5361a328-2560-4a81-9df1-e2af99012539" type="radio">
+</input><label class="sd-tab-label" for="56d6270a-71fe-4d46-8d5c-05b7e4d7b5a5">
+source</label><div class="sd-tab-content docutils">
+<p>git clone <a class="reference external" href="https://github.com/interpretml/interpret.git">https://github.com/interpretml/interpret.git</a> &amp;&amp; cd interpret/scripts &amp;&amp; make install-core</p>
 </div>
 </div>
-<input id="e46e8aeb-847d-40b7-83e9-f26b2d619000" name="586c33ad-0290-49f9-b07c-7a30fdd7029e" type="radio">
-</input><label class="tabbed-label" for="e46e8aeb-847d-40b7-83e9-f26b2d619000">
-conda</label><div class="tabbed-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge interpret-core
-</pre></div>
-</div>
-</div>
-<input id="b43006a7-2236-480e-93bb-bbd0983230fc" name="586c33ad-0290-49f9-b07c-7a30fdd7029e" type="radio">
-</input><label class="tabbed-label" for="b43006a7-2236-480e-93bb-bbd0983230fc">
-source</label><div class="tabbed-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/interpretml/interpret.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> interpret/scripts <span class="o">&amp;&amp;</span> make install-core
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="install-with-some-official-dependencies-pip">
-<h2>Install with some official dependencies (pip)<a class="headerlink" href="#install-with-some-official-dependencies-pip" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-with-some-official-dependencies-pip">
+<h2>Install with some official dependencies (pip)<a class="headerlink" href="#install-with-some-official-dependencies-pip" title="Permalink to this headline">#</a></h2>
 <p>This scenario is not covered in all package managers we support. If you are installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you can take advantage of extra tags that are exposed for <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code>. It’s best to look at the source code to see how this works.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">interpret</span></code> utilizing <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> tags found <a class="reference external" href="https://github.com/interpretml/interpret/blob/develop/python/interpret/setup.py">here</a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> extra tags found <a class="reference external" href="https://github.com/interpretml/interpret/blob/develop/python/interpret-core/setup.py">here</a>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="exposing-visualizations">
-<h1>Exposing Visualizations<a class="headerlink" href="#exposing-visualizations" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exposing-visualizations">
+<h1>Exposing Visualizations<a class="headerlink" href="#exposing-visualizations" title="Permalink to this headline">#</a></h1>
 <p>The visualizations that power <code class="docutils literal notranslate"><span class="pre">interpret</span></code> use different renderers depending on the environment they are in. In most cases, the package will detect what kind of environment it is in and use the appropriat <a class="reference external" href="https://github.com/interpretml/interpret/blob/683e632f4122af54eada2e214066de7be75bd7e0/python/interpret-core/interpret/provider/visualize.py#L25">renderer</a>. There are times though when you want to forcefully select which one.</p>
-<div class="section" id="dash-renderer">
-<h2>Dash Renderer<a class="headerlink" href="#dash-renderer" title="Permalink to this headline">¶</a></h2>
+<section id="dash-renderer">
+<h2>Dash Renderer<a class="headerlink" href="#dash-renderer" title="Permalink to this headline">#</a></h2>
 <p>The Dash renderer is used for local environments such as running a Jupyter notebook on your laptop. It runs a Dash server, backed by Apache Flask in a separate process the first time its called by <code class="docutils literal notranslate"><span class="pre">interpret</span></code>.</p>
 <p>This provides access to both embedded visualizations within notebooks as well as the full dashboard. However, due to requiring a live Flask server, it cannot render in an offline notebook.</p>
 <p>See the source code for underestandings its configuration <a class="reference external" href="https://github.com/interpretml/interpret/blob/683e632f4122af54eada2e214066de7be75bd7e0/python/interpret-core/interpret/provider/visualize.py#L149">here</a>.</p>
@@ -473,8 +616,8 @@ source</label><div class="tabbed-content docutils">
 </div>
 </div>
 <dl class="py class">
-<dt id="interpret.provider.DashProvider">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">interpret.provider.</span></code><code class="sig-name descname"><span class="pre">DashProvider</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_runner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.DashProvider" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="interpret.provider.DashProvider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">interpret.provider.</span></span><span class="sig-name descname"><span class="pre">DashProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_runner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.DashProvider" title="Permalink to this definition">#</a></dt>
 <dd><p>Initializes class.</p>
 <p>This requires an instantiated <cite>AppRunner</cite>, call <cite>.from_address</cite> instead
 to initialize both.</p>
@@ -484,8 +627,8 @@ to initialize both.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="interpret.provider.DashProvider.from_address">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_address</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_relative_links</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.DashProvider.from_address" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="interpret.provider.DashProvider.from_address">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_relative_links</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.DashProvider.from_address" title="Permalink to this definition">#</a></dt>
 <dd><p>Initialize a new <cite>AppRunner</cite> along with the provider.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -500,9 +643,9 @@ to initialize both.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="inline-renderer">
-<h2>Inline Renderer<a class="headerlink" href="#inline-renderer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="inline-renderer">
+<h2>Inline Renderer<a class="headerlink" href="#inline-renderer" title="Permalink to this headline">#</a></h2>
 <p>The inline renderer is used for cloud environments access to flask servers are not always available. In most configurations, it injects JavaScript in each notebook cell, including the bundle.</p>
 <p>This does not allow for full dashboards, but it does allow offline support.</p>
 <p>See the source code for underestandings its configuration <a class="reference external" href="https://github.com/interpretml/interpret/blob/683e632f4122af54eada2e214066de7be75bd7e0/python/interpret-core/interpret/provider/visualize.py#L192">here</a>.</p>
@@ -516,8 +659,8 @@ to initialize both.</p>
 </div>
 </div>
 <dl class="py class">
-<dt id="interpret.provider.InlineProvider">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">interpret.provider.</span></code><code class="sig-name descname"><span class="pre">InlineProvider</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detected_envs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">js_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.InlineProvider" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="interpret.provider.InlineProvider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">interpret.provider.</span></span><span class="sig-name descname"><span class="pre">InlineProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detected_envs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">js_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.InlineProvider" title="Permalink to this definition">#</a></dt>
 <dd><p>Initializes class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -529,8 +672,8 @@ to initialize both.</p>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -544,7 +687,7 @@ to initialize both.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -554,54 +697,48 @@ to initialize both.</p>
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="framework.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Interactivity</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="framework.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Interactivity</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="installation-guide.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installation</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="installation-guide.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Installation</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By InterpretML Team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The InterpretML Contributors<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
