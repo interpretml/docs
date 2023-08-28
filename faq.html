@@ -64,8 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'faq';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Algorithms" href="algorithms.html" />
-    <link rel="prev" title="Getting Started" href="index.html" />
+    <link rel="prev" title="Logging and Debugging" href="debugging-guide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,31 +156,87 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">What the FAQ</a></li>
-
-
-<li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearRegression.html">LinearRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClassificationTree.html">ClassificationTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RegressionTree.html">RegressionTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DecisionListClassifier.html">DecisionListClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="merge_ebms.html">merge_ebms</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ShapKernel.html">ShapKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LimeTabular.html">LimeTabular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PartialDependence.html">PartialDependence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MorrisSensitivity.html">MorrisSensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-greybox.html">interpret.greybox</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ShapTree.html">ShapTree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-perf.html">interpret.perf</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="RegressionPerf.html">RegressionPerf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ROC.html">ROC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PR.html">PR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-data.html">interpret.data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ClassHistogram.html">ClassHistogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Marginal.html">Marginal</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="measure_interactions.html">measure_interactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-develop.html">interpret.develop</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="debug_mode.html">debug_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="show.html">show</a></li>
+<li class="toctree-l2"><a class="reference internal" href="show_link.html">show_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set_show_addr.html">set_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_show_addr.html">get_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preserve.html">preserve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shutdown_show_server.html">shutdown_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_show_server.html">init_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_show_server.html">status_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set_visualize_provider.html">set_visualize_provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_visualize_provider.html">get_visualize_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dr.html">Decision Rule</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="shap.html">Shapley Additive Explanations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lime.html">Local Interpretable Model-agnostic Explanations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pdp.html">Partial Dependence Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="msa.html">Morris Sensitivity Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="dpebm.html">Differentially Private EBMs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ebm-internals-regression.html">EBM Internals - Regression</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="ebm-internals-classification.html">EBM Internals - Binary classification</a></li>
@@ -190,41 +245,18 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LogisticRegression.html">LogisticRegression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LinearRegression.html">LinearRegression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ClassificationTree.html">ClassificationTree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RegressionTree.html">RegressionTree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DecisionListClassifier.html">DecisionListClassifier</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="ShapKernel.html">ShapKernel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LimeTabular.html">LimeTabular</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PartialDependence.html">PartialDependence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MorrisSensitivity.html">MorrisSensitivity</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="show.html">show</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="framework.html">Interactivity</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="deployment-guide.html">Deployment</a></li>
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation-guide.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging-guide.html">Logging and Debugging</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What the FAQ</a></li>
+
+
 </ul>
 
     </div>
@@ -572,22 +604,13 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="debugging-guide.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Getting Started</p>
+        <p class="prev-next-title">Logging and Debugging</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="algorithms.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Algorithms</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

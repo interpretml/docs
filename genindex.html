@@ -154,31 +154,87 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="faq.html">What the FAQ</a></li>
-
-
-<li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearRegression.html">LinearRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClassificationTree.html">ClassificationTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RegressionTree.html">RegressionTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DecisionListClassifier.html">DecisionListClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="merge_ebms.html">merge_ebms</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ShapKernel.html">ShapKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LimeTabular.html">LimeTabular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PartialDependence.html">PartialDependence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MorrisSensitivity.html">MorrisSensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-greybox.html">interpret.greybox</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ShapTree.html">ShapTree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-perf.html">interpret.perf</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="RegressionPerf.html">RegressionPerf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ROC.html">ROC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PR.html">PR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-data.html">interpret.data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ClassHistogram.html">ClassHistogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Marginal.html">Marginal</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="measure_interactions.html">measure_interactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-develop.html">interpret.develop</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="debug_mode.html">debug_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="show.html">show</a></li>
+<li class="toctree-l2"><a class="reference internal" href="show_link.html">show_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set_show_addr.html">set_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_show_addr.html">get_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preserve.html">preserve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shutdown_show_server.html">shutdown_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_show_server.html">init_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_show_server.html">status_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set_visualize_provider.html">set_visualize_provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_visualize_provider.html">get_visualize_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dr.html">Decision Rule</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="shap.html">Shapley Additive Explanations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lime.html">Local Interpretable Model-agnostic Explanations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pdp.html">Partial Dependence Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="msa.html">Morris Sensitivity Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="dpebm.html">Differentially Private EBMs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ebm-internals-regression.html">EBM Internals - Regression</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="ebm-internals-classification.html">EBM Internals - Binary classification</a></li>
@@ -187,41 +243,18 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LogisticRegression.html">LogisticRegression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LinearRegression.html">LinearRegression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ClassificationTree.html">ClassificationTree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RegressionTree.html">RegressionTree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DecisionListClassifier.html">DecisionListClassifier</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="ShapKernel.html">ShapKernel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LimeTabular.html">LimeTabular</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PartialDependence.html">PartialDependence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MorrisSensitivity.html">MorrisSensitivity</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="show.html">show</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="framework.html">Interactivity</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="deployment-guide.html">Deployment</a></li>
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation-guide.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging-guide.html">Logging and Debugging</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">What the FAQ</a></li>
+
+
 </ul>
 
     </div>
@@ -330,6 +363,7 @@ document.write(`
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -343,6 +377,8 @@ document.write(`
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ClassHistogram.html#interpret.data.ClassHistogram">ClassHistogram (class in interpret.data)</a>
+</li>
       <li><a href="ClassificationTree.html#interpret.glassbox.ClassificationTree">ClassificationTree (class in interpret.glassbox)</a>
 </li>
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.copy">copy() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
@@ -364,6 +400,8 @@ document.write(`
       <li><a href="deployment-guide.html#interpret.provider.DashProvider">DashProvider (class in interpret.provider)</a>
 </li>
       <li><a href="framework.html#interpret.api.base.ExplanationMixin.data">data() (interpret.api.base.ExplanationMixin method)</a>
+</li>
+      <li><a href="debug_mode.html#interpret.develop.debug_mode">debug_mode() (in module interpret.develop)</a>
 </li>
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.decision_function">decision_function() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
 
@@ -389,6 +427,12 @@ document.write(`
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ClassHistogram.html#interpret.data.ClassHistogram.explain_data">explain_data() (interpret.data.ClassHistogram method)</a>
+
+      <ul>
+        <li><a href="Marginal.html#interpret.data.Marginal.explain_data">(interpret.data.Marginal method)</a>
+</li>
+      </ul></li>
       <li><a href="MorrisSensitivity.html#interpret.blackbox.MorrisSensitivity.explain_global">explain_global() (interpret.blackbox.MorrisSensitivity method)</a>
 
       <ul>
@@ -432,6 +476,8 @@ document.write(`
 </li>
         <li><a href="RegressionTree.html#interpret.glassbox.RegressionTree.explain_local">(interpret.glassbox.RegressionTree method)</a>
 </li>
+        <li><a href="ShapTree.html#interpret.greybox.ShapTree.explain_local">(interpret.greybox.ShapTree method)</a>
+</li>
         <li><a href="DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.explain_local">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
 </li>
         <li><a href="DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.explain_local">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
@@ -439,6 +485,14 @@ document.write(`
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="PR.html#interpret.perf.PR.explain_perf">explain_perf() (interpret.perf.PR method)</a>
+
+      <ul>
+        <li><a href="RegressionPerf.html#interpret.perf.RegressionPerf.explain_perf">(interpret.perf.RegressionPerf method)</a>
+</li>
+        <li><a href="ROC.html#interpret.perf.ROC.explain_perf">(interpret.perf.ROC method)</a>
+</li>
+      </ul></li>
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier">ExplainableBoostingClassifier (class in interpret.glassbox)</a>
 </li>
       <li><a href="ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor">ExplainableBoostingRegressor (class in interpret.glassbox)</a>
@@ -480,8 +534,24 @@ document.write(`
   </ul></td>
 </tr></table>
 
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="get_show_addr.html#interpret.get_show_addr">get_show_addr() (in module interpret)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="get_visualize_provider.html#interpret.get_visualize_provider">get_visualize_provider() (in module interpret)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="init_show_server.html#interpret.init_show_server">init_show_server() (in module interpret)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="deployment-guide.html#interpret.provider.InlineProvider">InlineProvider (class in interpret.provider)</a>
 </li>
@@ -505,6 +575,12 @@ document.write(`
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="Marginal.html#interpret.data.Marginal">Marginal (class in interpret.data)</a>
+</li>
+      <li><a href="measure_interactions.html#interpret.utils.measure_interactions">measure_interactions() (in module interpret.utils)</a>
+</li>
+      <li><a href="merge_ebms.html#interpret.glassbox.merge_ebms">merge_ebms() (in module interpret.glassbox)</a>
+</li>
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.monotonize">monotonize() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
 
       <ul>
@@ -526,6 +602,8 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="PartialDependence.html#interpret.blackbox.PartialDependence">PartialDependence (class in interpret.blackbox)</a>
+</li>
+      <li><a href="PR.html#interpret.perf.PR">PR (class in interpret.perf)</a>
 </li>
       <li><a href="ClassificationTree.html#interpret.glassbox.ClassificationTree.predict">predict() (interpret.glassbox.ClassificationTree method)</a>
 
@@ -567,12 +645,16 @@ document.write(`
         <li><a href="DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.predict_proba">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
 </li>
       </ul></li>
+      <li><a href="preserve.html#interpret.preserve">preserve() (in module interpret)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="RegressionPerf.html#interpret.perf.RegressionPerf">RegressionPerf (class in interpret.perf)</a>
+</li>
       <li><a href="RegressionTree.html#interpret.glassbox.RegressionTree">RegressionTree (class in interpret.glassbox)</a>
 </li>
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.remove_features">remove_features() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
@@ -597,6 +679,8 @@ document.write(`
         <li><a href="DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.remove_terms">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
 </li>
       </ul></li>
+      <li><a href="ROC.html#interpret.perf.ROC">ROC (class in interpret.perf)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -635,9 +719,21 @@ document.write(`
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="set_show_addr.html#interpret.set_show_addr">set_show_addr() (in module interpret)</a>
+</li>
+      <li><a href="set_visualize_provider.html#interpret.set_visualize_provider">set_visualize_provider() (in module interpret)</a>
+</li>
       <li><a href="ShapKernel.html#interpret.blackbox.ShapKernel">ShapKernel (class in interpret.blackbox)</a>
 </li>
-      <li><a href="show.html#interpret.show">show (class in interpret)</a>
+      <li><a href="ShapTree.html#interpret.greybox.ShapTree">ShapTree (class in interpret.greybox)</a>
+</li>
+      <li><a href="show.html#interpret.show">show() (in module interpret)</a>
+</li>
+      <li><a href="show_link.html#interpret.show_link">show_link() (in module interpret)</a>
+</li>
+      <li><a href="shutdown_show_server.html#interpret.shutdown_show_server">shutdown_show_server() (in module interpret)</a>
+</li>
+      <li><a href="status_show_server.html#interpret.status_show_server">status_show_server() (in module interpret)</a>
 </li>
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.sweep">sweep() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
 
