@@ -194,6 +194,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="link_func.html">link_func</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inv_link.html">inv_link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="measure_interactions.html">measure_interactions</a></li>
 </ul>
 </li>
@@ -243,10 +245,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="framework.html">Interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Visualizations</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="deployment-guide.html">Deployment</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="deployment-guide.html">Deployments</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation-guide.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging-guide.html">Logging and Debugging</a></li>
@@ -397,7 +399,7 @@ document.write(`
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="deployment-guide.html#interpret.provider.DashProvider">DashProvider (class in interpret.provider)</a>
+      <li><a href="framework.html#interpret.provider.DashProvider">DashProvider (class in interpret.provider)</a>
 </li>
       <li><a href="framework.html#interpret.api.base.ExplanationMixin.data">data() (interpret.api.base.ExplanationMixin method)</a>
 </li>
@@ -406,11 +408,7 @@ document.write(`
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.decision_function">decision_function() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
 
       <ul>
-        <li><a href="ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.decision_function">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
-</li>
         <li><a href="DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.decision_function">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
-</li>
-        <li><a href="DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.decision_function">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -427,6 +425,16 @@ document.write(`
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.eval_terms">eval_terms() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.eval_terms">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.eval_terms">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.eval_terms">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
       <li><a href="ClassHistogram.html#interpret.data.ClassHistogram.explain_data">explain_data() (interpret.data.ClassHistogram method)</a>
 
       <ul>
@@ -529,7 +537,7 @@ document.write(`
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="deployment-guide.html#interpret.provider.DashProvider.from_address">from_address() (interpret.provider.DashProvider class method)</a>
+      <li><a href="framework.html#interpret.provider.DashProvider.from_address">from_address() (interpret.provider.DashProvider class method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -553,7 +561,9 @@ document.write(`
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="deployment-guide.html#interpret.provider.InlineProvider">InlineProvider (class in interpret.provider)</a>
+      <li><a href="framework.html#interpret.provider.InlineProvider">InlineProvider (class in interpret.provider)</a>
+</li>
+      <li><a href="inv_link.html#interpret.utils.inv_link">inv_link() (in module interpret.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -563,9 +573,11 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="LimeTabular.html#interpret.blackbox.LimeTabular">LimeTabular (class in interpret.blackbox)</a>
 </li>
+      <li><a href="LinearRegression.html#interpret.glassbox.LinearRegression">LinearRegression (class in interpret.glassbox)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="LinearRegression.html#interpret.glassbox.LinearRegression">LinearRegression (class in interpret.glassbox)</a>
+      <li><a href="link_func.html#interpret.utils.link_func">link_func() (in module interpret.utils)</a>
 </li>
       <li><a href="LogisticRegression.html#interpret.glassbox.LogisticRegression">LogisticRegression (class in interpret.glassbox)</a>
 </li>
@@ -627,12 +639,6 @@ document.write(`
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.predict_and_contrib">predict_and_contrib() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
-
-      <ul>
-        <li><a href="ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.predict_and_contrib">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
-</li>
-      </ul></li>
       <li><a href="ClassificationTree.html#interpret.glassbox.ClassificationTree.predict_proba">predict_proba() (interpret.glassbox.ClassificationTree method)</a>
 
       <ul>
@@ -761,8 +767,6 @@ document.write(`
         <li><a href="DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.term_importances">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.to_json">to_json() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
 
       <ul>
@@ -771,6 +775,18 @@ document.write(`
         <li><a href="DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.to_json">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
 </li>
         <li><a href="DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.to_json">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.to_jsonable">to_jsonable() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.to_jsonable">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.to_jsonable">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.to_jsonable">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
 </li>
       </ul></li>
   </ul></td>

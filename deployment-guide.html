@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Deployment &#8212; InterpretML documentation</title>
+    <title>Deployments &#8212; InterpretML documentation</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Development" href="development.html" />
-    <link rel="prev" title="Interactivity" href="framework.html" />
+    <link rel="prev" title="Visualizations" href="framework.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,6 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="link_func.html">link_func</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inv_link.html">inv_link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="measure_interactions.html">measure_interactions</a></li>
 </ul>
 </li>
@@ -246,10 +248,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="framework.html">Interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Visualizations</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Deployment</a></li>
 
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Deployments</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation-guide.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging-guide.html">Logging and Debugging</a></li>
@@ -394,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Deployment</h1>
+    <h1>Deployments</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -404,19 +406,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deployment</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-every-dependency-default">Install with every dependency (default)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-no-dependencies">Install with no dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-minimal-dependencies">Install with minimal dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-some-official-dependencies-pip">Install with some official dependencies (pip)</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exposing-visualizations">Exposing Visualizations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dash-renderer">Dash Renderer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-renderer">Inline Renderer</a></li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -427,9 +420,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="deployment">
-<h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this heading">#</a></h1>
-<p>The package <code class="docutils literal notranslate"><span class="pre">interpret</span></code> is handy for data scientists in the prototyping and model building phase. However the number of dependencies required is exhaustive, and for production environments it’s often better to select only the components you need for installation. Sometimes you’ll also have a better understanding of what dependency versions can work with <code class="docutils literal notranslate"><span class="pre">interpret</span></code> and your environment, even if we don’t officially support it. As such we offer options <code class="docutils literal notranslate"><span class="pre">interpret</span></code> and <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> for both scenarios.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="deployments">
+<h1>Deployments<a class="headerlink" href="#deployments" title="Permalink to this heading">#</a></h1>
+<p>When deploying to production, it is usually desirable to include as few dependencies as possible. For this scenario we offer the <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> package, which includes only the dependencies required for EBM fitting, predicting, editing, serialization, and generating explanations.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">interpret</span></code> package includes all the dependencies of <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code>, plus additional dependencies required for visualizing EBMs, generating other glassbox models, and blackbox explanations.</p>
+<p>For further customization, we support extra tags on pip installs to fine tune the dependencies.</p>
 <section id="install-with-every-dependency-default">
 <h2>Install with every dependency (default)<a class="headerlink" href="#install-with-every-dependency-default" title="Permalink to this heading">#</a></h2>
 <p>The package <code class="docutils literal notranslate"><span class="pre">interpret</span></code> installs every dependency needed to run any part of the package.</p>
@@ -451,9 +446,9 @@ source</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </section>
-<section id="install-with-no-dependencies">
-<h2>Install with no dependencies<a class="headerlink" href="#install-with-no-dependencies" title="Permalink to this heading">#</a></h2>
-<p>When you don’t want any dependencies to automatically install and you only need the code, install the package <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> instead. The package <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> is a zero-dependency install.</p>
+<section id="install-with-minimal-dependencies">
+<h2>Install with minimal dependencies<a class="headerlink" href="#install-with-minimal-dependencies" title="Permalink to this heading">#</a></h2>
+<p>When you only want the required dependencies, or you wish to customize the dependencies, install the package <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> instead.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-3">
@@ -474,90 +469,15 @@ source</label><div class="sd-tab-content docutils">
 </section>
 <section id="install-with-some-official-dependencies-pip">
 <h2>Install with some official dependencies (pip)<a class="headerlink" href="#install-with-some-official-dependencies-pip" title="Permalink to this heading">#</a></h2>
-<p>This scenario is not covered in all package managers we support. If you are installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you can take advantage of extra tags that are exposed for <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code>. It’s best to look at the source code to see how this works.</p>
+<p>This scenario is not covered in all package managers we support. If you are installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you can take advantage of extra tags that are exposed for <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code>.</p>
+<p>Installing with all extra tags is equivalent to installing the <code class="docutils literal notranslate"><span class="pre">interpret</span></code> package, and can be done with:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>interpret-core<span class="o">[</span>debug,notebook,plotly,lime,sensitivity,shap,linear,skoperules,treeinterpreter,dash,testing<span class="o">]</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">interpret</span></code> utilizing <code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> tags found <a class="reference external" href="https://github.com/interpretml/interpret/blob/develop/python/interpret/setup.py">here</a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">interpret-core</span></code> extra tags found <a class="reference external" href="https://github.com/interpretml/interpret/blob/develop/python/interpret-core/setup.py">here</a>.</p></li>
 </ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="exposing-visualizations">
-<h1>Exposing Visualizations<a class="headerlink" href="#exposing-visualizations" title="Permalink to this heading">#</a></h1>
-<p>The visualizations that power <code class="docutils literal notranslate"><span class="pre">interpret</span></code> use different renderers depending on the environment they are in. In most cases, the package will detect what kind of environment it is in and use the appropriat <a class="reference external" href="https://github.com/interpretml/interpret/blob/683e632f4122af54eada2e214066de7be75bd7e0/python/interpret-core/interpret/provider/visualize.py#L25">renderer</a>. There are times though when you want to forcefully select which one.</p>
-<section id="dash-renderer">
-<h2>Dash Renderer<a class="headerlink" href="#dash-renderer" title="Permalink to this heading">#</a></h2>
-<p>The Dash renderer is used for local environments such as running a Jupyter notebook on your laptop. It runs a Dash server, backed by Apache Flask in a separate process the first time its called by <code class="docutils literal notranslate"><span class="pre">interpret</span></code>.</p>
-<p>This provides access to both embedded visualizations within notebooks as well as the full dashboard. However, due to requiring a live Flask server, it cannot render in an offline notebook.</p>
-<p>See the source code for underestandings its configuration <a class="reference external" href="https://github.com/interpretml/interpret/blob/683e632f4122af54eada2e214066de7be75bd7e0/python/interpret-core/interpret/provider/visualize.py#L149">here</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">interpret</span> <span class="kn">import</span> <span class="n">set_visualize_provider</span>
-<span class="kn">from</span> <span class="nn">interpret.provider</span> <span class="kn">import</span> <span class="n">DashProvider</span>
-<span class="n">set_visualize_provider</span><span class="p">(</span><span class="n">DashProvider</span><span class="o">.</span><span class="n">from_address</span><span class="p">((</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">7001</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<dl class="py class">
-<dt class="sig sig-object py" id="interpret.provider.DashProvider">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">interpret.provider.</span></span><span class="sig-name descname"><span class="pre">DashProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_runner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.DashProvider" title="Permalink to this definition">#</a></dt>
-<dd><p>Provides rendering via Plotly’s Dash.</p>
-<p>This works in the event of an environment that can expose HTTP(s) ports.</p>
-<p>Initializes class.</p>
-<p>This requires an instantiated <cite>AppRunner</cite>, call <cite>.from_address</cite> instead
-to initialize both.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>app_runner</strong> – An AppRunner instance.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="interpret.provider.DashProvider.from_address">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_relative_links</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.DashProvider.from_address" title="Permalink to this definition">#</a></dt>
-<dd><p>Initialize a new <cite>AppRunner</cite> along with the provider.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>addr</strong> – A tuple that is (ip_addr, port).</p></li>
-<li><p><strong>base_url</strong> – Base URL, this useful when behind a proxy.</p></li>
-<li><p><strong>use_relative_links</strong> – Relative links for rendered pages instead of full URI.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="inline-renderer">
-<h2>Inline Renderer<a class="headerlink" href="#inline-renderer" title="Permalink to this heading">#</a></h2>
-<p>The inline renderer is used for cloud environments access to flask servers are not always available. In most configurations, it injects JavaScript in each notebook cell, including the bundle.</p>
-<p>This does not allow for full dashboards, but it does allow offline support.</p>
-<p>See the source code for underestandings its configuration <a class="reference external" href="https://github.com/interpretml/interpret/blob/683e632f4122af54eada2e214066de7be75bd7e0/python/interpret-core/interpret/provider/visualize.py#L192">here</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">interpret</span> <span class="kn">import</span> <span class="n">set_visualize_provider</span>
-<span class="kn">from</span> <span class="nn">interpret.provider</span> <span class="kn">import</span> <span class="n">InlineProvider</span>
-<span class="n">set_visualize_provider</span><span class="p">(</span><span class="n">InlineProvider</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<dl class="py class">
-<dt class="sig sig-object py" id="interpret.provider.InlineProvider">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">interpret.provider.</span></span><span class="sig-name descname"><span class="pre">InlineProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detected_envs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">js_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.provider.InlineProvider" title="Permalink to this definition">#</a></dt>
-<dd><p>Provides rendering via JavaScript that are invoked within Jupyter cells.</p>
-<p>Initializes class.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>detected_envs</strong> – Environments targetted as defined in <cite>interpret.utils.environment</cite>.</p></li>
-<li><p><strong>js_url</strong> – If defined, will load the JavaScript bundle for interpret-inline from the given URL.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 </section>
 </section>
 
@@ -595,7 +515,7 @@ to initialize both.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Interactivity</p>
+        <p class="prev-next-title">Visualizations</p>
       </div>
     </a>
     <a class="right-next"
@@ -622,19 +542,10 @@ to initialize both.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deployment</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-every-dependency-default">Install with every dependency (default)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-no-dependencies">Install with no dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-minimal-dependencies">Install with minimal dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-with-some-official-dependencies-pip">Install with some official dependencies (pip)</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exposing-visualizations">Exposing Visualizations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dash-renderer">Dash Renderer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-renderer">Inline Renderer</a></li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
