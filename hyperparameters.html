@@ -457,7 +457,7 @@ document.write(`
 <section id="interactions">
 <h2>interactions<a class="headerlink" href="#interactions" title="Permalink to this heading">#</a></h2>
 <p>default: 0.95</p>
-<p>hyperparameters: [0, 0.25, 0.5, 0.75, 0.95]</p>
+<p>hyperparameters: [0, 0.25, 0.5, 0.75, 0.95, 5, 10, 25, 50, 100, 250]</p>
 <p>guidance: Introducing more interactions tends to improve model accuracy. Values between 0 and LESS than 1.0 are interpreted as percentages of the number of features. For example, a dataset with 100 features and an interactions value of 0.75 will automatically detect and use 75 interactions. Values of 1 or higher indicate the exact number of interactions to be detected, so for example 1 would create 1 interaction, and 50 would create 50.</p>
 </section>
 <section id="validation-size">
@@ -471,7 +471,7 @@ document.write(`
 <p>default: 14</p>
 <p>ideal: 50 (diminishing returns beyond this point)</p>
 <p>hyperparameters: [50]</p>
-<p>guidance: We suggest increasing the number of outer bags if computational resources permit, ideally up to 50 outer bags where improvements plateau.</p>
+<p>guidance: We suggest increasing the number of outer bags if computational resources permit, ideally up to 50 outer bags where improvements plateau. Ideally up to 50-100 outer bags.  As with bagging, improvement starts to plateau around 25 and usually there is little advantage to going above 100.</p>
 </section>
 <section id="inner-bags">
 <h2>inner_bags<a class="headerlink" href="#inner-bags" title="Permalink to this heading">#</a></h2>
@@ -479,7 +479,7 @@ document.write(`
 <p>WARNING: Setting this value to 50 will typically increase the fitting time by a factor of 50x.</p>
 <p>ideal: 50 (diminishing returns beyond this point)</p>
 <p>hyperparameters: [0] OR if you can afford it [0, 50]</p>
-<p>guidance: The default inner_bags value of 0 disables inner bagging. Setting this parameter to 1 or other low values will typically make the model worse since model fitting will then only use a subset of the data. Increasing the number of inner bags to 50 can improve model accuracy at the cost of significantly longer training times. If computation time is not a constraint, we suggest trying both 0 and 50, but not other values in between.</p>
+<p>guidance: The default inner_bags value of 0 disables inner bagging. Setting this parameter to 1 or other low values will typically make the model worse since model fitting will then only use a subset of the data but not do enough inner bagging to compensate. Increasing the number of inner bags to 50 can improve model accuracy at the cost of significantly longer training times. If computation time is not a constraint, we suggest trying both 0 and 50, but not other values in between.</p>
 </section>
 <section id="learning-rate">
 <h2>learning_rate<a class="headerlink" href="#learning-rate" title="Permalink to this heading">#</a></h2>
@@ -496,27 +496,27 @@ document.write(`
 <section id="cyclic-progress">
 <h2>cyclic_progress<a class="headerlink" href="#cyclic-progress" title="Permalink to this heading">#</a></h2>
 <p>default: 1.0</p>
-<p>hyperparameters: [0.0, 0.25, 0.5, 1.0]</p>
+<p>hyperparameters: [0.0, 0.5, 1.0]</p>
 <p>guidance: cyclic_progress is a good candidate for hyperparameter tuning as the best value is dataset dependent.</p>
 </section>
 <section id="smoothing-rounds">
 <h2>smoothing_rounds<a class="headerlink" href="#smoothing-rounds" title="Permalink to this heading">#</a></h2>
 <p>default: 200</p>
 <p>hyperparameters: [0, 50, 100, 200, 500, 1000, 2000, 4000]</p>
-<p>guidance: The optimal smoothing_rounds value will vary depending on the dataset’s characteristics. Adjust based on the prevalence of smooth feature response curves.</p>
+<p>guidance: This is an important hyperparameter to tune.  The optimal smoothing_rounds value will vary depending on the dataset’s characteristics. Adjust based on the prevalence of smooth feature response curves.</p>
 </section>
 <section id="interaction-smoothing-rounds">
 <h2>interaction_smoothing_rounds<a class="headerlink" href="#interaction-smoothing-rounds" title="Permalink to this heading">#</a></h2>
 <p>default: 50</p>
 <p>hyperparameters: [0, 50, 100, 500]</p>
-<p>guidance: interaction_smoothing_rounds appears to have only a minor impact on model accuracy. 0 is often the best choice.</p>
+<p>guidance: interaction_smoothing_rounds appears to have only a minor impact on model accuracy. 0 is often the best choice.  0 is often the most accurate choice, but the interaction shape plots will be smoother and easier to interpret with more interaction_smoothing_rounds.</p>
 </section>
 <section id="max-rounds">
 <h2>max_rounds<a class="headerlink" href="#max-rounds" title="Permalink to this heading">#</a></h2>
 <p>default: 25000</p>
-<p>ideal: 1000000000 (early stopping should stop before this point)</p>
+<p>ideal: 1000000000 (early stopping should stop long before this point)</p>
 <p>hyperparameters: [1000000000]</p>
-<p>guidance: The max_rounds parameter serves as a limit to prevent excessive training on datasets where improvements taper off. Set this parameter sufficiently high to avoid curtailing the early stopping mechanism. Consider increasing it if small yet consistent gains are observed in longer trainings.</p>
+<p>guidance: The max_rounds parameter serves as a limit to prevent excessive training on datasets where improvements taper off. Set this parameter sufficiently high to avoid premature early stopping. Consider increasing it if small yet consistent gains are observed in longer trainings.</p>
 </section>
 <section id="early-stopping-rounds">
 <h2>early_stopping_rounds<a class="headerlink" href="#early-stopping-rounds" title="Permalink to this heading">#</a></h2>
@@ -537,14 +537,14 @@ document.write(`
 <section id="min-hessian">
 <h2>min_hessian<a class="headerlink" href="#min-hessian" title="Permalink to this heading">#</a></h2>
 <p>default: 0.0001</p>
-<p>hyperparameters: [1.0, 0.01, 0.0001, 0.000001]</p>
-<p>guidance: The default min_hessian is a solid starting point. While 1.0 may not be optimal in most scenarios, testing different thresholds could yield improvements depending on dataset characteristics.</p>
+<p>hyperparameters: [0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001]</p>
+<p>guidance: The default min_hessian is a solid starting point.</p>
 </section>
 <section id="max-leaves">
 <h2>max_leaves<a class="headerlink" href="#max-leaves" title="Permalink to this heading">#</a></h2>
 <p>default: 3</p>
 <p>hyperparameters: [3, 4]</p>
-<p>guidance: Generally, the default setting is effective, but it’s worth checking if an increment to 4 can offer better accuracy on your specific data.</p>
+<p>guidance: Generally, the default setting is effective, but it’s worth checking if an increment to 4 can offer better accuracy on your specific data. The max_leaves parameter only applies to main effects.</p>
 </section>
 </section>
 
