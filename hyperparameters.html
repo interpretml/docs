@@ -161,6 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/APLRRegressor.html">APLRRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/APLRClassifier.html">APLRClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/LogisticRegression.html">LogisticRegression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/LinearRegression.html">LinearRegression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ClassificationTree.html">ClassificationTree</a></li>
@@ -220,6 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aplr.html">Automatic Piecewise Linear Regression (APLR)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
 </ul>
@@ -411,23 +414,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-rounds">smoothing_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions">interactions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-bags">inner_bags</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-bins">max_bins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-interaction-bins">max_interaction_bins</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions">interactions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-size">validation_size</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-bags">outer_bags</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-bags">inner_bags</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">learning_rate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greedy-ratio">greedy_ratio</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-progress">cyclic_progress</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-rounds">smoothing_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-bags">outer_bags</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-smoothing-rounds">interaction_smoothing_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">learning_rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-leaves">max_leaves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-samples-leaf">min_samples_leaf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-hessian">min_hessian</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-rounds">max_rounds</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#early-stopping-rounds">early_stopping_rounds</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#early-stopping-tolerance">early_stopping_tolerance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-samples-leaf">min_samples_leaf</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-hessian">min_hessian</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-leaves">max_leaves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-size">validation_size</a></li>
 </ul>
             </nav>
         </div>
@@ -442,6 +445,27 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="hyperparameters">
 <h1>Hyperparameters<a class="headerlink" href="#hyperparameters" title="Permalink to this heading">#</a></h1>
 <p>Explainable Boosting Machines (EBMs) are often robust with default settings, however hyperparameter tuning can potentially improve model accuracy by a modest amount. The default parameters aim to balance computational efficiency with model accuracy. For some parameters we have a clear understanding of which direction they should be changed in order to improve the model. For these parameters, hyperparameter turning is not recommended and you should set them in accordance with how much time you can afford to fit the model.</p>
+<p>The parameters below are ordered by tuning importance, with the most important hyperparameters to tune at the top, and the least important ones to tune at the bottom.</p>
+<section id="smoothing-rounds">
+<h2>smoothing_rounds<a class="headerlink" href="#smoothing-rounds" title="Permalink to this heading">#</a></h2>
+<p>default: 200</p>
+<p>hyperparameters: [0, 50, 100, 200, 500, 1000, 2000, 4000]</p>
+<p>guidance: This is an important hyperparameter to tune.  The optimal smoothing_rounds value will vary depending on the dataset’s characteristics. Adjust based on the prevalence of smooth feature response curves.</p>
+</section>
+<section id="interactions">
+<h2>interactions<a class="headerlink" href="#interactions" title="Permalink to this heading">#</a></h2>
+<p>default: 0.9</p>
+<p>hyperparameters: [0, 0.5, 0.75, 0.9, 0.95, 5, 10, 25, 50, 100, 250]</p>
+<p>guidance: Introducing more interactions tends to improve model accuracy. Values between 0 and LESS than 1.0 are interpreted as percentages of the number of features. For example, a dataset with 100 features and an interactions value of 0.75 will automatically detect and use 75 interactions. Values of 1 or higher indicate the exact number of interactions to be detected, so for example 1 would create 1 interaction, and 50 would create 50.</p>
+</section>
+<section id="inner-bags">
+<h2>inner_bags<a class="headerlink" href="#inner-bags" title="Permalink to this heading">#</a></h2>
+<p>default: 0</p>
+<p>WARNING: Setting this value to 50 will typically increase the fitting time by a factor of 50x.</p>
+<p>ideal: 50 (diminishing returns beyond this point)</p>
+<p>hyperparameters: [0] OR if you can afford it [0, 50]</p>
+<p>guidance: The default inner_bags value of 0 disables inner bagging. Setting this parameter to 1 or other low values will typically make the model worse since model fitting will then only use a subset of the data but not do enough inner bagging to compensate. Increasing the number of inner bags to 50 can improve model accuracy at the cost of significantly longer training times. If computation time is not a constraint, we suggest trying both 0 and 50, but not other values in between.</p>
+</section>
 <section id="max-bins">
 <h2>max_bins<a class="headerlink" href="#max-bins" title="Permalink to this heading">#</a></h2>
 <p>default: 1024</p>
@@ -453,39 +477,6 @@ document.write(`
 <p>default: 32</p>
 <p>hyperparameters: [8, 16, 32, 64, 128, 256]</p>
 <p>guidance: For max_interaction_bins, more is not necessarily better, unlike with max_bins. A good value on many datasets seems to be 32, but it’s worth trying higher and lower values.</p>
-</section>
-<section id="interactions">
-<h2>interactions<a class="headerlink" href="#interactions" title="Permalink to this heading">#</a></h2>
-<p>default: 0.95</p>
-<p>hyperparameters: [0, 0.25, 0.5, 0.75, 0.95, 5, 10, 25, 50, 100, 250]</p>
-<p>guidance: Introducing more interactions tends to improve model accuracy. Values between 0 and LESS than 1.0 are interpreted as percentages of the number of features. For example, a dataset with 100 features and an interactions value of 0.75 will automatically detect and use 75 interactions. Values of 1 or higher indicate the exact number of interactions to be detected, so for example 1 would create 1 interaction, and 50 would create 50.</p>
-</section>
-<section id="validation-size">
-<h2>validation_size<a class="headerlink" href="#validation-size" title="Permalink to this heading">#</a></h2>
-<p>default: 0.15</p>
-<p>hyperparameters: [0.1, 0.15, 0.2]</p>
-<p>guidance: The ideal amount of data to be used as validation is dataset dependent, and should be tuned when possible.</p>
-</section>
-<section id="outer-bags">
-<h2>outer_bags<a class="headerlink" href="#outer-bags" title="Permalink to this heading">#</a></h2>
-<p>default: 14</p>
-<p>ideal: 50 (diminishing returns beyond this point)</p>
-<p>hyperparameters: [50]</p>
-<p>guidance: We suggest increasing the number of outer bags if computational resources permit, ideally up to 50 outer bags where improvements plateau. Ideally up to 50-100 outer bags.  As with bagging, improvement starts to plateau around 25 and usually there is little advantage to going above 100.</p>
-</section>
-<section id="inner-bags">
-<h2>inner_bags<a class="headerlink" href="#inner-bags" title="Permalink to this heading">#</a></h2>
-<p>default: 0</p>
-<p>WARNING: Setting this value to 50 will typically increase the fitting time by a factor of 50x.</p>
-<p>ideal: 50 (diminishing returns beyond this point)</p>
-<p>hyperparameters: [0] OR if you can afford it [0, 50]</p>
-<p>guidance: The default inner_bags value of 0 disables inner bagging. Setting this parameter to 1 or other low values will typically make the model worse since model fitting will then only use a subset of the data but not do enough inner bagging to compensate. Increasing the number of inner bags to 50 can improve model accuracy at the cost of significantly longer training times. If computation time is not a constraint, we suggest trying both 0 and 50, but not other values in between.</p>
-</section>
-<section id="learning-rate">
-<h2>learning_rate<a class="headerlink" href="#learning-rate" title="Permalink to this heading">#</a></h2>
-<p>default: 0.01</p>
-<p>hyperparameters: [0.02, 0.01, 0.005, 0.0025]</p>
-<p>guidance: A smaller learning_rate promotes finer model adjustments during fitting, but may require more iterations. Generally, we believe a smaller learning_rate should improve the model, but sometimes hyperparameter tuning seems to be needed to select the best value.</p>
 </section>
 <section id="greedy-ratio">
 <h2>greedy_ratio<a class="headerlink" href="#greedy-ratio" title="Permalink to this heading">#</a></h2>
@@ -499,17 +490,42 @@ document.write(`
 <p>hyperparameters: [0.0, 0.5, 1.0]</p>
 <p>guidance: cyclic_progress is a good candidate for hyperparameter tuning as the best value is dataset dependent.</p>
 </section>
-<section id="smoothing-rounds">
-<h2>smoothing_rounds<a class="headerlink" href="#smoothing-rounds" title="Permalink to this heading">#</a></h2>
-<p>default: 200</p>
-<p>hyperparameters: [0, 50, 100, 200, 500, 1000, 2000, 4000]</p>
-<p>guidance: This is an important hyperparameter to tune.  The optimal smoothing_rounds value will vary depending on the dataset’s characteristics. Adjust based on the prevalence of smooth feature response curves.</p>
+<section id="outer-bags">
+<h2>outer_bags<a class="headerlink" href="#outer-bags" title="Permalink to this heading">#</a></h2>
+<p>default: 14</p>
+<p>ideal: 50 (diminishing returns beyond this point)</p>
+<p>hyperparameters: [50]</p>
+<p>guidance: We suggest increasing the number of outer bags if computational resources permit, ideally up to 50 outer bags where improvements plateau. Ideally up to 50-100 outer bags.  As with bagging, improvement starts to plateau around 25 and usually there is little advantage to going above 100.</p>
 </section>
 <section id="interaction-smoothing-rounds">
 <h2>interaction_smoothing_rounds<a class="headerlink" href="#interaction-smoothing-rounds" title="Permalink to this heading">#</a></h2>
 <p>default: 50</p>
 <p>hyperparameters: [0, 50, 100, 500]</p>
 <p>guidance: interaction_smoothing_rounds appears to have only a minor impact on model accuracy. 0 is often the best choice.  0 is often the most accurate choice, but the interaction shape plots will be smoother and easier to interpret with more interaction_smoothing_rounds.</p>
+</section>
+<section id="learning-rate">
+<h2>learning_rate<a class="headerlink" href="#learning-rate" title="Permalink to this heading">#</a></h2>
+<p>default: 0.01</p>
+<p>hyperparameters: [0.1, 0.025, 0.01, 0.005, 0.0025]</p>
+<p>guidance: A smaller learning_rate promotes finer model adjustments during fitting, but may require more iterations. Generally, we believe a smaller learning_rate should improve the model, but sometimes hyperparameter tuning seems to be needed to select the best value.</p>
+</section>
+<section id="max-leaves">
+<h2>max_leaves<a class="headerlink" href="#max-leaves" title="Permalink to this heading">#</a></h2>
+<p>default: 3</p>
+<p>hyperparameters: [2, 3, 4]</p>
+<p>guidance: Generally, the default setting is effective, but it’s worth checking if changing to either 2 or 4 can offer better accuracy on your specific data. The max_leaves parameter only applies to main effects.</p>
+</section>
+<section id="min-samples-leaf">
+<h2>min_samples_leaf<a class="headerlink" href="#min-samples-leaf" title="Permalink to this heading">#</a></h2>
+<p>default: 2</p>
+<p>hyperparameters: [2, 3, 4]</p>
+<p>guidance: The default value usually works well, however experimenting with slightly higher values could potentially enhance generalization on certain datasets.</p>
+</section>
+<section id="min-hessian">
+<h2>min_hessian<a class="headerlink" href="#min-hessian" title="Permalink to this heading">#</a></h2>
+<p>default: 0.0001</p>
+<p>hyperparameters: [0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001]</p>
+<p>guidance: The default min_hessian is a solid starting point.</p>
 </section>
 <section id="max-rounds">
 <h2>max_rounds<a class="headerlink" href="#max-rounds" title="Permalink to this heading">#</a></h2>
@@ -525,26 +541,15 @@ document.write(`
 </section>
 <section id="early-stopping-tolerance">
 <h2>early_stopping_tolerance<a class="headerlink" href="#early-stopping-tolerance" title="Permalink to this heading">#</a></h2>
-<p>default: 0.0</p>
-<p>guidance: Altering early_stopping_tolerance is not generally recommended. Increasing it may reduce fitting time at the expense of some accuracy.</p>
+<p>default: 1e-5
+hyperparameters: [1e-5, 1e-7, 0.0]</p>
+<p>guidance: early_stopping_tolerance is set to 1e-5 because it decreases the fitting time by 25%, however setting early_stopping_tolerance to 0.0, or even a negative value sometimes yields slightly higher accuracy. EBMs are a bagged ensemble model, so overfitting each individual bag a little can be beneficial because after the models are averaged together in the ensemble averaging decreases the variance due to overfitting. Using a negative value for early_stopping_tolerance allows the individual models to be overfit.</p>
 </section>
-<section id="min-samples-leaf">
-<h2>min_samples_leaf<a class="headerlink" href="#min-samples-leaf" title="Permalink to this heading">#</a></h2>
-<p>default: 2</p>
-<p>hyperparameters: [2, 3, 4]</p>
-<p>guidance: The default value usually works well, however experimenting with slightly higher values could potentially enhance generalization on certain datasets.</p>
-</section>
-<section id="min-hessian">
-<h2>min_hessian<a class="headerlink" href="#min-hessian" title="Permalink to this heading">#</a></h2>
-<p>default: 0.0001</p>
-<p>hyperparameters: [0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001]</p>
-<p>guidance: The default min_hessian is a solid starting point.</p>
-</section>
-<section id="max-leaves">
-<h2>max_leaves<a class="headerlink" href="#max-leaves" title="Permalink to this heading">#</a></h2>
-<p>default: 3</p>
-<p>hyperparameters: [3, 4]</p>
-<p>guidance: Generally, the default setting is effective, but it’s worth checking if an increment to 4 can offer better accuracy on your specific data. The max_leaves parameter only applies to main effects.</p>
+<section id="validation-size">
+<h2>validation_size<a class="headerlink" href="#validation-size" title="Permalink to this heading">#</a></h2>
+<p>default: 0.15</p>
+<p>hyperparameters: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]</p>
+<p>guidance: The ideal amount of data to be used as validation is dataset dependent, and should be tuned when possible.</p>
 </section>
 </section>
 
@@ -609,23 +614,23 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-rounds">smoothing_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions">interactions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-bags">inner_bags</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-bins">max_bins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-interaction-bins">max_interaction_bins</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions">interactions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-size">validation_size</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-bags">outer_bags</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-bags">inner_bags</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">learning_rate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greedy-ratio">greedy_ratio</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-progress">cyclic_progress</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smoothing-rounds">smoothing_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-bags">outer_bags</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-smoothing-rounds">interaction_smoothing_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">learning_rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-leaves">max_leaves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-samples-leaf">min_samples_leaf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-hessian">min_hessian</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-rounds">max_rounds</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#early-stopping-rounds">early_stopping_rounds</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#early-stopping-tolerance">early_stopping_tolerance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-samples-leaf">min_samples_leaf</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-hessian">min_hessian</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-leaves">max_leaves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-size">validation_size</a></li>
 </ul>
   </nav></div>
 

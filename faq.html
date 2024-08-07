@@ -161,6 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/APLRRegressor.html">APLRRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/APLRClassifier.html">APLRClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/LogisticRegression.html">LogisticRegression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/LinearRegression.html">LinearRegression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ClassificationTree.html">ClassificationTree</a></li>
@@ -220,6 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aplr.html">Automatic Piecewise Linear Regression (APLR)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
 </ul>
@@ -492,7 +495,13 @@ document.write(`
 <h2>How can I edit EBM models to remove unwanted learned effects?</h2>
 <p>The final EBM models are stored as numpy arrays in the <code class="docutils literal notranslate"><span class="pre">terms_scores_</span></code> property. Indexing this array returns the function learned for a specific term in the EBM – for example, <code class="docutils literal notranslate"><span class="pre">ebm.terms_scores_[0]</span></code> will return the array for the first term. Editing this array directly will change all predictions made by the model for that corresponding region of the graph. A nicer API for this with more granular controls will be introduced shortly!</p>
 <h2>Can we enforce monotonicity for individual EBM terms?</h2>
-<p>We currently cannot do this through training, but it is possible to enforce monotonicity through postprocessing a graph. We generally recommend using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.isotonic.IsotonicRegression.html#sklearn.isotonic.IsotonicRegression">isotonic regression</a> on each graph output to force positive or negative monotonicity. Code examples coming soon!</p>
+<p>It is possible to enforce monotonicity for individual terms in an EBM via two methods:
+:</p>
+<ul class="simple">
+<li><p>By setting <code class="docutils literal notranslate"><span class="pre">monotone_constraints</span></code> in the <code class="docutils literal notranslate"><span class="pre">ExplainableBoostingClassifier</span></code> or <code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor</span></code> constructor. This parameter is a list of integers, where each integer corresponds to the monotonicity constraint for the corresponding feature. A value of -1 enforces decreasing monotonicity, 0 enforces no monotonicity, and 1 enforces increasing monotonicity. For example, <code class="docutils literal notranslate"><span class="pre">monotone_constraints=[1,</span> <span class="pre">-1,</span> <span class="pre">0]</span></code> would enforce increasing monotonicity for the first feature, decreasing monotonicity for the second feature, and no monotonicity for the third feature.</p></li>
+<li><p>Through postprocessing a graph. We generally recommend using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.isotonic.IsotonicRegression.html#sklearn.isotonic.IsotonicRegression">isotonic regression</a> on each graph output to force positive or negative monotonicity. This can be done by calling the <code class="docutils literal notranslate"><span class="pre">monotonize</span></code> method on the EBM object.
+Postprocessing is the recommended method, as it prevents the model from compensating for the monotonicity constraints by learning non-monotonic effects in other highly-correlated features.</p></li>
+</ul>
 <h2>How can we serialize EBMs and use them in production?</h2>
 <p>For full functionality, we recommend using <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle</a> to serialize and deserialize EBM objects. Explanations can be serialized as JSON through the <code class="docutils literal notranslate"><span class="pre">data</span></code> method.</p>
 <p>Thanks to Github user <a class="reference external" href="https://github.com/MainRo">&#64;MainRo</a>, there is now an <code class="docutils literal notranslate"><span class="pre">ebm2onnx</span></code> package available which enables high speed inference on EBM objects through ONNX compatible runtimes. Check out the package here: <a class="github reference external" href="https://github.com/SoftAtHome/ebm2onnx/">SoftAtHome/ebm2onnx</a> and install from PyPi via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ebm2onnx</span></code></p>

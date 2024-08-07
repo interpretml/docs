@@ -1,0 +1,163 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from interpret.blackbox import ShapKernel
+
+background_val = pd.DataFrame(np.median(X_train, axis=0).reshape(1, -1), columns=X.columns)
+shap = ShapKernel(blackbox_model, background_val)
+shap_local = shap.explain_local(X_test[:5], y_test[:5], name='SHAP')
+show(shap_local, 0)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[6], line 4[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01minterpret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mblackbox[39;00m [38;5;28;01mimport[39;00m ShapKernel
+[1;32m      3[0m background_val [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(np[38;5;241m.[39mmedian(X_train, axis[38;5;241m=[39m[38;5;241m0[39m)[38;5;241m.[39mreshape([38;5;241m1[39m, [38;5;241m-[39m[38;5;241m1[39m), columns[38;5;241m=[39mX[38;5;241m.[39mcolumns)
+[0;32m----> 4[0m shap [38;5;241m=[39m [43mShapKernel[49m[43m([49m[43mblackbox_model[49m[43m,[49m[43m [49m[43mbackground_val[49m[43m)[49m
+[1;32m      5[0m shap_local [38;5;241m=[39m shap[38;5;241m.[39mexplain_local(X_test[:[38;5;241m5[39m], y_test[:[38;5;241m5[39m], name[38;5;241m=[39m[38;5;124m'[39m[38;5;124mSHAP[39m[38;5;124m'[39m)
+[1;32m      6[0m show(shap_local, [38;5;241m0[39m)
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/interpret/blackbox/_shap.py:32[0m, in [0;36mShapKernel.__init__[0;34m(self, model, data, feature_names, feature_types, **kwargs)[0m
+[1;32m     21[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, model, data, feature_names[38;5;241m=[39m[38;5;28;01mNone[39;00m, feature_types[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m     22[0m [38;5;250m    [39m[38;5;124;03m"""Initializes class.[39;00m
+[1;32m     23[0m 
+[1;32m     24[0m [38;5;124;03m    Args:[39;00m
+[0;32m   (...)[0m
+[1;32m     29[0m [38;5;124;03m        **kwargs: Kwargs that will be sent to shap.KernelExplainer[39;00m
+[1;32m     30[0m [38;5;124;03m    """[39;00m
+[0;32m---> 32[0m     [38;5;28;01mfrom[39;00m [38;5;21;01mshap[39;00m [38;5;28;01mimport[39;00m KernelExplainer
+[1;32m     34[0m     [38;5;28mself[39m[38;5;241m.[39mmodel [38;5;241m=[39m model
+[1;32m     35[0m     [38;5;28mself[39m[38;5;241m.[39mfeature_names [38;5;241m=[39m feature_names
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/__init__.py:45[0m
+[1;32m     43[0m     have_matplotlib [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+[1;32m     44[0m [38;5;28;01mif[39;00m have_matplotlib:
+[0;32m---> 45[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m plots
+[1;32m     46[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mplots[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_bar[39;00m [38;5;28;01mimport[39;00m bar_legacy [38;5;28;01mas[39;00m bar_plot
+[1;32m     47[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mplots[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_beeswarm[39;00m [38;5;28;01mimport[39;00m summary_legacy [38;5;28;01mas[39;00m summary_plot
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/__init__.py:6[0m
+[1;32m      3[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+[1;32m      4[0m     [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m([38;5;124m"[39m[38;5;124mmatplotlib is not installed so plotting is not available! Run `pip install matplotlib` to fix this.[39m[38;5;124m"[39m)
+[0;32m----> 6[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_bar[39;00m [38;5;28;01mimport[39;00m bar
+[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_beeswarm[39;00m [38;5;28;01mimport[39;00m beeswarm
+[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_benchmark[39;00m [38;5;28;01mimport[39;00m benchmark
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/_bar.py:9[0m
+[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m [38;5;28;01mimport[39;00m format_value, ordinal_str
+[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_exceptions[39;00m [38;5;28;01mimport[39;00m DimensionError
+[0;32m----> 9[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m colors
+[1;32m     10[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_labels[39;00m [38;5;28;01mimport[39;00m labels
+[1;32m     11[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_utils[39;00m [38;5;28;01mimport[39;00m (
+[1;32m     12[0m     convert_ordering,
+[1;32m     13[0m     dendrogram_coords,
+[0;32m   (...)[0m
+[1;32m     16[0m     sort_inds,
+[1;32m     17[0m )
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_colors[39;00m [38;5;28;01mimport[39;00m (
+[1;32m      2[0m     blue_rgb,
+[1;32m      3[0m     gray_rgb,
+[1;32m      4[0m     light_blue_rgb,
+[1;32m      5[0m     light_red_rgb,
+[1;32m      6[0m     red_blue,
+[1;32m      7[0m     red_blue_circle,
+[1;32m      8[0m     red_blue_no_bounds,
+[1;32m      9[0m     red_blue_transparent,
+[1;32m     10[0m     red_rgb,
+[1;32m     11[0m     red_transparent_blue,
+[1;32m     12[0m     red_white_blue,
+[1;32m     13[0m     transparent_blue,
+[1;32m     14[0m     transparent_red,
+[1;32m     15[0m )
+[1;32m     17[0m __all__ [38;5;241m=[39m [
+[1;32m     18[0m     [38;5;124m"[39m[38;5;124mblue_rgb[39m[38;5;124m"[39m,
+[1;32m     19[0m     [38;5;124m"[39m[38;5;124mgray_rgb[39m[38;5;124m"[39m,
+[0;32m   (...)[0m
+[1;32m     30[0m     [38;5;124m"[39m[38;5;124mtransparent_red[39m[38;5;124m"[39m,
+[1;32m     31[0m ]
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colors.py:23[0m
+[1;32m     21[0m red_lch [38;5;241m=[39m [[38;5;241m54.[39m, [38;5;241m90.[39m, [38;5;241m0.35470565[39m [38;5;241m+[39m [38;5;241m2[39m[38;5;241m*[39m np[38;5;241m.[39mpi]
+[1;32m     22[0m gray_lch [38;5;241m=[39m [[38;5;241m55.[39m, [38;5;241m0.[39m, [38;5;241m0.[39m]
+[0;32m---> 23[0m blue_rgb [38;5;241m=[39m [43mlch2rgb[49m[43m([49m[43mblue_lch[49m[43m)[49m
+[1;32m     24[0m red_rgb [38;5;241m=[39m lch2rgb(red_lch)
+[1;32m     25[0m gray_rgb [38;5;241m=[39m lch2rgb(gray_lch)
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colors.py:13[0m, in [0;36mlch2rgb[0;34m(x)[0m
+[1;32m     12[0m [38;5;28;01mdef[39;00m [38;5;21mlch2rgb[39m(x):
+[0;32m---> 13[0m     [38;5;28;01mreturn[39;00m lab2rgb([43mlch2lab[49m[43m([49m[43m[[49m[43m[[49m[43mx[49m[43m][49m[43m][49m[43m)[49m)[[38;5;241m0[39m][[38;5;241m0[39m]
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:372[0m, in [0;36mlch2lab[0;34m(lch)[0m
+[1;32m    346[0m [38;5;28;01mdef[39;00m [38;5;21mlch2lab[39m(lch):
+[1;32m    347[0m [38;5;250m    [39m[38;5;124;03m"""CIE-LCH to CIE-LAB color space conversion.[39;00m
+[1;32m    348[0m [38;5;124;03m    LCH is the cylindrical representation of the LAB (Cartesian) colorspace[39;00m
+[1;32m    349[0m [38;5;124;03m    Parameters[39;00m
+[0;32m   (...)[0m
+[1;32m    370[0m [38;5;124;03m    >>> img_lab2 = lch2lab(img_lch)[39;00m
+[1;32m    371[0m [38;5;124;03m    """[39;00m
+[0;32m--> 372[0m     lch [38;5;241m=[39m [43m_prepare_lab_array[49m[43m([49m[43mlch[49m[43m)[49m
+[1;32m    374[0m     c, h [38;5;241m=[39m lch[[38;5;241m.[39m[38;5;241m.[39m[38;5;241m.[39m, [38;5;241m1[39m], lch[[38;5;241m.[39m[38;5;241m.[39m[38;5;241m.[39m, [38;5;241m2[39m]
+[1;32m    375[0m     lch[[38;5;241m.[39m[38;5;241m.[39m[38;5;241m.[39m, [38;5;241m1[39m], lch[[38;5;241m.[39m[38;5;241m.[39m[38;5;241m.[39m, [38;5;241m2[39m] [38;5;241m=[39m c [38;5;241m*[39m np[38;5;241m.[39mcos(h), c [38;5;241m*[39m np[38;5;241m.[39msin(h)
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:387[0m, in [0;36m_prepare_lab_array[0;34m(arr)[0m
+[1;32m    385[0m [38;5;28;01mif[39;00m shape[[38;5;241m-[39m[38;5;241m1[39m] [38;5;241m<[39m [38;5;241m3[39m:
+[1;32m    386[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mInput array has less than 3 color channels[39m[38;5;124m'[39m)
+[0;32m--> 387[0m [38;5;28;01mreturn[39;00m [43mimg_as_float[49m[43m([49m[43marr[49m[43m,[49m[43m [49m[43mforce_copy[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:993[0m, in [0;36mimg_as_float[0;34m(image, force_copy)[0m
+[1;32m    972[0m [38;5;28;01mdef[39;00m [38;5;21mimg_as_float[39m(image, force_copy[38;5;241m=[39m[38;5;28;01mFalse[39;00m):
+[1;32m    973[0m [38;5;250m    [39m[38;5;124;03m"""Convert an image to floating point format.[39;00m
+[1;32m    974[0m [38;5;124;03m    This function is similar to `img_as_float64`, but will not convert[39;00m
+[1;32m    975[0m [38;5;124;03m    lower-precision floating point arrays to `float64`.[39;00m
+[0;32m   (...)[0m
+[1;32m    991[0m [38;5;124;03m    and can be outside the ranges [0.0, 1.0] or [-1.0, 1.0].[39;00m
+[1;32m    992[0m [38;5;124;03m    """[39;00m
+[0;32m--> 993[0m     [38;5;28;01mreturn[39;00m [43mconvert[49m[43m([49m[43mimage[49m[43m,[49m[43m [49m[43mnp[49m[38;5;241;43m.[39;49m[43mfloating[49m[43m,[49m[43m [49m[43mforce_copy[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:819[0m, in [0;36mconvert[0;34m(image, dtype, force_copy, uniform)[0m
+[1;32m    808[0m itemsize_out [38;5;241m=[39m dtypeobj_out[38;5;241m.[39mitemsize
+[1;32m    810[0m [38;5;66;03m# Below, we do an `issubdtype` check.  Its purpose is to find out[39;00m
+[1;32m    811[0m [38;5;66;03m# whether we can get away without doing any image conversion.  This happens[39;00m
+[1;32m    812[0m [38;5;66;03m# when:[39;00m
+[0;32m   (...)[0m
+[1;32m    816[0m [38;5;66;03m#   is a subclass of that type (e.g. `np.floating` will allow[39;00m
+[1;32m    817[0m [38;5;66;03m#   `float32` and `float64` arrays through)[39;00m
+[0;32m--> 819[0m [38;5;28;01mif[39;00m np[38;5;241m.[39missubdtype(dtype_in, [43mnp[49m[38;5;241;43m.[39;49m[43mobj2sctype[49m(dtype)):
+[1;32m    820[0m     [38;5;28;01mif[39;00m force_copy:
+[1;32m    821[0m         image [38;5;241m=[39m image[38;5;241m.[39mcopy()
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/numpy/__init__.py:397[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    394[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
+[1;32m    396[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __expired_attributes__:
+[0;32m--> 397[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
+[1;32m    398[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m`np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` was removed in the NumPy 2.0 release. [39m[38;5;124m"[39m
+[1;32m    399[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m__expired_attributes__[attr][38;5;132;01m}[39;00m[38;5;124m"[39m
+[1;32m    400[0m     )
+[1;32m    402[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m"[39m[38;5;124mchararray[39m[38;5;124m"[39m:
+[1;32m    403[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    404[0m         [38;5;124m"[39m[38;5;124m`np.chararray` is deprecated and will be removed from [39m[38;5;124m"[39m
+[1;32m    405[0m         [38;5;124m"[39m[38;5;124mthe main namespace in the future. Use an array with a string [39m[38;5;124m"[39m
+[1;32m    406[0m         [38;5;124m"[39m[38;5;124mor bytes dtype instead.[39m[38;5;124m"[39m, [38;5;167;01mDeprecationWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
+
+[0;31mAttributeError[0m: `np.obj2sctype` was removed in the NumPy 2.0 release. Use `np.dtype(obj).type` instead.
+AttributeError: `np.obj2sctype` was removed in the NumPy 2.0 release. Use `np.dtype(obj).type` instead.
+

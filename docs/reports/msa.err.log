@@ -1,0 +1,101 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.decomposition import PCA
+from sklearn.pipeline import Pipeline
+
+from interpret import show
+from interpret.blackbox import MorrisSensitivity
+
+seed = 42
+np.random.seed(seed)
+X, y = load_breast_cancer(return_X_y=True, as_frame=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=seed)
+
+pca = PCA()
+rf = RandomForestClassifier(random_state=seed)
+
+blackbox_model = Pipeline([('pca', pca), ('rf', rf)])
+blackbox_model.fit(X_train, y_train)
+
+msa = MorrisSensitivity(blackbox_model, X_train)
+
+show(msa.explain_global())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[2], line 23[0m
+[1;32m     20[0m blackbox_model [38;5;241m=[39m Pipeline([([38;5;124m'[39m[38;5;124mpca[39m[38;5;124m'[39m, pca), ([38;5;124m'[39m[38;5;124mrf[39m[38;5;124m'[39m, rf)])
+[1;32m     21[0m blackbox_model[38;5;241m.[39mfit(X_train, y_train)
+[0;32m---> 23[0m msa [38;5;241m=[39m [43mMorrisSensitivity[49m[43m([49m[43mblackbox_model[49m[43m,[49m[43m [49m[43mX_train[49m[43m)[49m
+[1;32m     25[0m show(msa[38;5;241m.[39mexplain_global())
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/interpret/blackbox/_sensitivity.py:98[0m, in [0;36mMorrisSensitivity.__init__[0;34m(self, model, data, feature_names, feature_types, sampler, **kwargs)[0m
+[1;32m     96[0m samples [38;5;241m=[39m sampler[38;5;241m.[39msample(data, [38;5;28mself[39m[38;5;241m.[39mfeature_names_in_, [38;5;28mself[39m[38;5;241m.[39mfeature_types_in_)
+[1;32m     97[0m problem [38;5;241m=[39m _gen_problem_from_data(data, [38;5;28mself[39m[38;5;241m.[39mfeature_names_in_)
+[0;32m---> 98[0m analysis [38;5;241m=[39m [43mmorris[49m[38;5;241;43m.[39;49m[43manalyze[49m[43m([49m
+[1;32m     99[0m [43m    [49m[43mproblem[49m[43m,[49m[43m [49m[43msamples[49m[43m,[49m[43m [49m[43mpredict_fn[49m[43m([49m[43msamples[49m[43m)[49m[38;5;241;43m.[39;49m[43mastype[49m[43m([49m[38;5;28;43mfloat[39;49m[43m)[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m
+[1;32m    100[0m [43m[49m[43m)[49m
+[1;32m    102[0m [38;5;66;03m# TODO: see if we can clean up these datatypes to simpler and easier to understand[39;00m
+[1;32m    104[0m [38;5;28mself[39m[38;5;241m.[39mmu_ [38;5;241m=[39m analysis[[38;5;124m"[39m[38;5;124mmu[39m[38;5;124m"[39m]
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/SALib/analyze/morris.py:156[0m, in [0;36manalyze[0;34m(problem, X, Y, num_resamples, conf_level, scaled, print_to_console, num_levels, seed)[0m
+[1;32m    150[0m trajectory_size [38;5;241m=[39m [38;5;28mint[39m(Y[38;5;241m.[39msize [38;5;241m/[39m num_trajectories)
+[1;32m    152[0m elementary_effects [38;5;241m=[39m _compute_elementary_effects(
+[1;32m    153[0m     X, Y, trajectory_size, delta, scaling[38;5;241m=[39mscaled
+[1;32m    154[0m )
+[0;32m--> 156[0m Si [38;5;241m=[39m [43m_compute_statistical_outputs[49m[43m([49m
+[1;32m    157[0m [43m    [49m[43melementary_effects[49m[43m,[49m
+[1;32m    158[0m [43m    [49m[43mnum_vars[49m[43m,[49m
+[1;32m    159[0m [43m    [49m[43mnum_resamples[49m[43m,[49m
+[1;32m    160[0m [43m    [49m[43mconf_level[49m[43m,[49m
+[1;32m    161[0m [43m    [49m[43mgroups[49m[43m,[49m
+[1;32m    162[0m [43m    [49m[43munique_group_names[49m[43m,[49m
+[1;32m    163[0m [43m[49m[43m)[49m
+[1;32m    165[0m [38;5;28;01mif[39;00m print_to_console:
+[1;32m    166[0m     [38;5;28mprint[39m(Si[38;5;241m.[39mto_df())
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/SALib/analyze/morris.py:217[0m, in [0;36m_compute_statistical_outputs[0;34m(elementary_effects, num_vars, num_resamples, conf_level, groups, unique_group_names)[0m
+[1;32m    215[0m Si[[38;5;124m"[39m[38;5;124mmu[39m[38;5;124m"[39m] [38;5;241m=[39m _compute_grouped_metric(mu, groups)
+[1;32m    216[0m Si[[38;5;124m"[39m[38;5;124mmu_star[39m[38;5;124m"[39m] [38;5;241m=[39m _compute_grouped_metric(mu_star, groups)
+[0;32m--> 217[0m Si[[38;5;124m"[39m[38;5;124msigma[39m[38;5;124m"[39m] [38;5;241m=[39m [43m_compute_grouped_sigma[49m[43m([49m[43msigma[49m[43m,[49m[43m [49m[43mgroups[49m[43m)[49m
+[1;32m    218[0m Si[[38;5;124m"[39m[38;5;124mmu_star_conf[39m[38;5;124m"[39m] [38;5;241m=[39m _compute_grouped_metric(mu_star_conf, groups)
+[1;32m    220[0m [38;5;28;01mreturn[39;00m Si
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/SALib/analyze/morris.py:248[0m, in [0;36m_compute_grouped_sigma[0;34m(ungrouped_sigma, groups)[0m
+[1;32m    246[0m sigma [38;5;241m=[39m np[38;5;241m.[39mzeros(groups[38;5;241m.[39mshape[[38;5;241m1[39m], dtype[38;5;241m=[39m[38;5;28mfloat[39m)
+[1;32m    247[0m np[38;5;241m.[39mcopyto(sigma, sigma_agg, where[38;5;241m=[39mgroups[38;5;241m.[39msum(axis[38;5;241m=[39m[38;5;241m0[39m) [38;5;241m==[39m [38;5;241m1[39m)
+[0;32m--> 248[0m np[38;5;241m.[39mcopyto(sigma, [43mnp[49m[38;5;241;43m.[39;49m[43mNAN[49m, where[38;5;241m=[39mgroups[38;5;241m.[39msum(axis[38;5;241m=[39m[38;5;241m0[39m) [38;5;241m!=[39m [38;5;241m1[39m)
+[1;32m    250[0m [38;5;28;01mreturn[39;00m sigma
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/numpy/__init__.py:410[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    407[0m     [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mchar[39;00m [38;5;28;01mas[39;00m [38;5;21;01mchar[39;00m
+[1;32m    408[0m     [38;5;28;01mreturn[39;00m char[38;5;241m.[39mchararray
+[0;32m--> 410[0m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([38;5;124m"[39m[38;5;124mmodule [39m[38;5;132;01m{!r}[39;00m[38;5;124m has no attribute [39m[38;5;124m"[39m
+[1;32m    411[0m                      [38;5;124m"[39m[38;5;132;01m{!r}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat([38;5;18m__name__[39m, attr))
+
+[0;31mAttributeError[0m: module 'numpy' has no attribute 'NAN'
+AttributeError: module 'numpy' has no attribute 'NAN'
+

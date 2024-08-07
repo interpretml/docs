@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Shapley Additive Explanations &#8212; InterpretML documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'shap';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Local Interpretable Model-agnostic Explanations" href="lime.html" />
+    <link rel="prev" title="Blackbox Explainers" href="blackbox.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Getting Started
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/LinearRegression.html">LinearRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ClassificationTree.html">ClassificationTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/RegressionTree.html">RegressionTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/merge_ebms.html">merge_ebms</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ShapKernel.html">ShapKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/LimeTabular.html">LimeTabular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/PartialDependence.html">PartialDependence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/MorrisSensitivity.html">MorrisSensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-greybox.html">interpret.greybox</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ShapTree.html">ShapTree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-perf.html">interpret.perf</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/RegressionPerf.html">RegressionPerf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ROC.html">ROC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/PR.html">PR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-data.html">interpret.data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ClassHistogram.html">ClassHistogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/Marginal.html">Marginal</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/link_func.html">link_func</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/inv_link.html">inv_link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/measure_interactions.html">measure_interactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-develop.html">interpret.develop</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/debug_mode.html">debug_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/show.html">show</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/show_link.html">show_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/set_show_addr.html">set_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/get_show_addr.html">get_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/preserve.html">preserve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/shutdown_show_server.html">shutdown_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/init_show_server.html">init_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/status_show_server.html">status_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/set_visualize_provider.html">set_visualize_provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/get_visualize_provider.html">get_visualize_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Shapley Additive Explanations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lime.html">Local Interpretable Model-agnostic Explanations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdp.html">Partial Dependence Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="msa.html">Morris Sensitivity Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dpebm.html">Differentially Private EBMs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hyperparameters.html">Hyperparameters</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ebm-internals-regression.html">EBM Internals - Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ebm-internals-classification.html">EBM Internals - Binary classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ebm-internals-multiclass.html">EBM Internals - Multiclass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment-guide.html">Deployments</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation-guide.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging-guide.html">Logging and Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">What the FAQ</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-classification.html">Interpretable Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-regression.html">Interpretable Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-regression-synthetic.html">Smoothing EBMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/explain-blackbox-classifiers.html">Explain Blackbox Classifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/explain-blackbox-regressors.html">Explain Blackbox Regressors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/merge-ebms.html">Merging EBMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/custom-interactions.html">Custom Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/differential-privacy.html">Differential Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/group-importances.html">Group Importances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/prototype-selection.html">Prototype Selection</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/shap.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Shapley Additive Explanations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="shapley-additive-explanations">
+<h1>Shapley Additive Explanations<a class="headerlink" href="#shapley-additive-explanations" title="Permalink to this heading">#</a></h1>
+<p>Link to API Reference: <a class="reference internal" href="python/api/ShapKernel.html"><span class="doc std std-doc">ShapKernel</span></a></p>
+<p><em>See the backing repository for SHAP <a class="reference external" href="https://github.com/slundberg/shap">here</a>.</em></p>
+<h2>Summary</h2>
+<p>SHAP is a framework that explains the output of any model using Shapley values, a game theoretic approach often used for optimal credit allocation. While this can be used on any blackbox models, SHAP  can compute more efficiently on specific model classes (like tree ensembles). These optimizations become important at scale – calculating many SHAP values is feasible on optimized model classes, but can be comparatively slow in the model-agnostic setting. Due to their additive nature, individual (local) SHAP values can be aggregated and also used for global explanations. SHAP can be used as a foundation for deeper ML analysis such as model monitoring, fairness and cohort analysis.</p>
+<h2>How it Works</h2>
+<p>Christoph Molnar’s “Interpretable Machine Learning” e-book [<a class="reference internal" href="#molnar2020interpretable-shap"><span class="std std-ref">1</span></a>] has an excellent overview on SHAP that can be found <a class="reference external" href="https://christophm.github.io/interpretable-ml-book/shap.html">here</a>.</p>
+<p>The conceiving paper “A Unified Approach to Interpreting Model Predictions” [<a class="reference internal" href="#lundberg2017unified-shap"><span class="std std-ref">2</span></a>] can be found on arXiv <a class="reference external" href="https://arxiv.org/pdf/1602.04938.pdf">here</a>.</p>
+<p>If you find video as a better medium for learning the algorithm, you can find a conceptual overview of the algorithm by the author Scott Lundberg below:
+<a class="reference external" href="https://www.youtube.com/watch?v=-taOhqkiuIo"><img alt="The Science Behind InterpretML: SHAP" src="https://img.youtube.com/vi/-taOhqkiuIo/0.jpg" /></a></p>
+<h2>Code Example</h2>
+<p>The following code will train a blackbox pipeline for the breast cancer dataset. Aftewards it will interpret the pipeline and its decisions with SHAP. The visualizations provided will be for local explanations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">interpret</span> <span class="kn">import</span> <span class="n">set_visualize_provider</span>
+<span class="kn">from</span> <span class="nn">interpret.provider</span> <span class="kn">import</span> <span class="n">InlineProvider</span>
+<span class="n">set_visualize_provider</span><span class="p">(</span><span class="n">InlineProvider</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="kn">from</span> <span class="nn">interpret</span> <span class="kn">import</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">interpret.blackbox</span> <span class="kn">import</span> <span class="n">ShapKernel</span>
+
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="n">blackbox_model</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">pca</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;rf&#39;</span><span class="p">,</span> <span class="n">rf</span><span class="p">)])</span>
+<span class="n">blackbox_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">shap</span> <span class="o">=</span> <span class="n">ShapKernel</span><span class="p">(</span><span class="n">blackbox_model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
+<span class="n">shap_local</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">explain_local</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">y_test</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="n">show</span><span class="p">(</span><span class="n">shap_local</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.0 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/runpy.py&quot;, line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/runpy.py&quot;, line 87, in _run_code
+    exec(code, run_globals)
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel_launcher.py&quot;, line 17, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/traitlets/config/application.py&quot;, line 1043, in launch_instance
+    app.start()
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel/kernelapp.py&quot;, line 725, in start
+    self.io_loop.start()
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/tornado/platform/asyncio.py&quot;, line 205, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/asyncio/base_events.py&quot;, line 601, in run_forever
+    self._run_once()
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/asyncio/base_events.py&quot;, line 1905, in _run_once
+    handle._run()
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/asyncio/events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel/kernelbase.py&quot;, line 513, in dispatch_queue
+    await self.process_one()
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel/kernelbase.py&quot;, line 502, in process_one
+    await dispatch(*args)
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel/kernelbase.py&quot;, line 409, in dispatch_shell
+    await result
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel/kernelbase.py&quot;, line 729, in execute_request
+    reply_content = await reply_content
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel/ipkernel.py&quot;, line 422, in do_execute
+    res = shell.run_cell(
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/ipykernel/zmqshell.py&quot;, line 540, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;, line 2961, in run_cell
+    result = self._run_cell(
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;, line 3016, in _run_cell
+    result = runner(coro)
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/IPython/core/async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;, line 3221, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;, line 3400, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;, line 3460, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/tmp/ipykernel_4176/1879200390.py&quot;, line 23, in &lt;module&gt;
+    shap = ShapKernel(blackbox_model, X_train)
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/interpret/blackbox/_shap.py&quot;, line 32, in __init__
+    from shap import KernelExplainer
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/__init__.py&quot;, line 4, in &lt;module&gt;
+    from .explainers import other
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/explainers/__init__.py&quot;, line 4, in &lt;module&gt;
+    from ._gpu_tree import GPUTreeExplainer
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/explainers/_gpu_tree.py&quot;, line 5, in &lt;module&gt;
+    from ._tree import (
+  File &quot;/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/explainers/_tree.py&quot;, line 29, in &lt;module&gt;
+    from .. import _cext
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">23</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">blackbox_model</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">pca</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;rf&#39;</span><span class="p">,</span> <span class="n">rf</span><span class="p">)])</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">blackbox_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">shap</span> <span class="o">=</span> <span class="n">ShapKernel</span><span class="p">(</span><span class="n">blackbox_model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">shap_local</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">explain_local</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">y_test</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">show</span><span class="p">(</span><span class="n">shap_local</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/interpret/blackbox/_shap.py:32,</span> in <span class="ni">ShapKernel.__init__</span><span class="nt">(self, model, data, feature_names, feature_types, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Initializes class.</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span><span class="sd">     Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span><span class="sd">         **kwargs: Kwargs that will be sent to shap.KernelExplainer</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">32</span>     <span class="kn">from</span> <span class="nn">shap</span> <span class="kn">import</span> <span class="n">KernelExplainer</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_names</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">shap</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">45</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="n">have_matplotlib</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="k">if</span> <span class="n">have_matplotlib</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">45</span>     <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">plots</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="kn">from</span> <span class="nn">.plots._bar</span> <span class="kn">import</span> <span class="n">bar_legacy</span> <span class="k">as</span> <span class="n">bar_plot</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="kn">from</span> <span class="nn">.plots._beeswarm</span> <span class="kn">import</span> <span class="n">summary_legacy</span> <span class="k">as</span> <span class="n">summary_plot</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">shap</span><span class="o">/</span><span class="n">plots</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;matplotlib is not installed so plotting is not available! Run `pip install matplotlib` to fix this.&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">._bar</span> <span class="kn">import</span> <span class="n">bar</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">._beeswarm</span> <span class="kn">import</span> <span class="n">beeswarm</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._benchmark</span> <span class="kn">import</span> <span class="n">benchmark</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">shap</span><span class="o">/</span><span class="n">plots</span><span class="o">/</span><span class="n">_bar</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">format_value</span><span class="p">,</span> <span class="n">ordinal_str</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">..utils._exceptions</span> <span class="kn">import</span> <span class="n">DimensionError</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">._labels</span> <span class="kn">import</span> <span class="n">labels</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">convert_ordering</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">dendrogram_coords</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">sort_inds</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="p">)</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">shap</span><span class="o">/</span><span class="n">plots</span><span class="o">/</span><span class="n">colors</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">._colors</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">blue_rgb</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">gray_rgb</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">light_blue_rgb</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">light_red_rgb</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">red_blue</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">red_blue_circle</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">red_blue_no_bounds</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">red_blue_transparent</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">red_rgb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">red_transparent_blue</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">red_white_blue</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">transparent_blue</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">transparent_red</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="s2">&quot;blue_rgb&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="s2">&quot;gray_rgb&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="s2">&quot;transparent_red&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="p">]</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">shap</span><span class="o">/</span><span class="n">plots</span><span class="o">/</span><span class="n">colors</span><span class="o">/</span><span class="n">_colors</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">23</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">red_lch</span> <span class="o">=</span> <span class="p">[</span><span class="mf">54.</span><span class="p">,</span> <span class="mf">90.</span><span class="p">,</span> <span class="mf">0.35470565</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">gray_lch</span> <span class="o">=</span> <span class="p">[</span><span class="mf">55.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">blue_rgb</span> <span class="o">=</span> <span class="n">lch2rgb</span><span class="p">(</span><span class="n">blue_lch</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">red_rgb</span> <span class="o">=</span> <span class="n">lch2rgb</span><span class="p">(</span><span class="n">red_lch</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">gray_rgb</span> <span class="o">=</span> <span class="n">lch2rgb</span><span class="p">(</span><span class="n">gray_lch</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colors.py:13,</span> in <span class="ni">lch2rgb</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">def</span> <span class="nf">lch2rgb</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="k">return</span> <span class="n">lab2rgb</span><span class="p">(</span><span class="n">lch2lab</span><span class="p">([[</span><span class="n">x</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:372,</span> in <span class="ni">lch2lab</span><span class="nt">(lch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span> <span class="k">def</span> <span class="nf">lch2lab</span><span class="p">(</span><span class="n">lch</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;CIE-LCH to CIE-LAB color space conversion.</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span><span class="sd">     LCH is the cylindrical representation of the LAB (Cartesian) colorspace</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span><span class="sd">     &gt;&gt;&gt; img_lab2 = lch2lab(img_lch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">372</span>     <span class="n">lch</span> <span class="o">=</span> <span class="n">_prepare_lab_array</span><span class="p">(</span><span class="n">lch</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span>     <span class="n">c</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">lch</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lch</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span>     <span class="n">lch</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lch</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:387,</span> in <span class="ni">_prepare_lab_array</span><span class="nt">(arr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">385</span> <span class="k">if</span> <span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">386</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Input array has less than 3 color channels&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">387</span> <span class="k">return</span> <span class="n">img_as_float</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">force_copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:993,</span> in <span class="ni">img_as_float</span><span class="nt">(image, force_copy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span> <span class="k">def</span> <span class="nf">img_as_float</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">force_copy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Convert an image to floating point format.</span>
+<span class="g g-Whitespace">    </span><span class="mi">974</span><span class="sd">     This function is similar to `img_as_float64`, but will not convert</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span><span class="sd">     lower-precision floating point arrays to `float64`.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">991</span><span class="sd">     and can be outside the ranges [0.0, 1.0] or [-1.0, 1.0].</span>
+<span class="g g-Whitespace">    </span><span class="mi">992</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">993</span>     <span class="k">return</span> <span class="n">convert</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">,</span> <span class="n">force_copy</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/shap/plots/colors/_colorconv.py:819,</span> in <span class="ni">convert</span><span class="nt">(image, dtype, force_copy, uniform)</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span> <span class="n">itemsize_out</span> <span class="o">=</span> <span class="n">dtypeobj_out</span><span class="o">.</span><span class="n">itemsize</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span> <span class="c1"># Below, we do an `issubdtype` check.  Its purpose is to find out</span>
+<span class="g g-Whitespace">    </span><span class="mi">811</span> <span class="c1"># whether we can get away without doing any image conversion.  This happens</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> <span class="c1"># when:</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">816</span> <span class="c1">#   is a subclass of that type (e.g. `np.floating` will allow</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span> <span class="c1">#   `float32` and `float64` arrays through)</span>
+<span class="ne">--&gt; </span><span class="mi">819</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">dtype_in</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">obj2sctype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">820</span>     <span class="k">if</span> <span class="n">force_copy</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">821</span>         <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/numpy/__init__.py:397,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">__former_attrs__</span><span class="p">[</span><span class="n">attr</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">__expired_attributes__</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">397</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="sa">f</span><span class="s2">&quot;`np.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">` was removed in the NumPy 2.0 release. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__expired_attributes__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;chararray&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>         <span class="s2">&quot;`np.chararray` is deprecated and will be removed from &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>         <span class="s2">&quot;the main namespace in the future. Use an array with a string &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="s2">&quot;or bytes dtype instead.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: `np.obj2sctype` was removed in the NumPy 2.0 release. Use `np.dtype(obj).type` instead.
+</pre></div>
+</div>
+</div>
+</div>
+<h2>Further Resources</h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/slundberg/shap">SHAP GitHub Repository</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=-taOhqkiuIo">Conceptual Video for SHAP</a></p></li>
+</ul>
+<h2>Bibliography</h2>
+<p id="molnar2020interpretable-shap">[1] Christoph Molnar. Interpretable machine learning. Lulu. com, 2020.</p>
+<p id="lundberg2017unified-shap">[2] Scott Lundberg and Su-In Lee. A unified approach to interpreting model predictions. arXiv preprint arXiv:1705.07874, 2017.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="blackbox.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Blackbox Explainers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lime.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Local Interpretable Model-agnostic Explanations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The InterpretML Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

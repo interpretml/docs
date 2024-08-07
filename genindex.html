@@ -158,6 +158,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/APLRRegressor.html">APLRRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/APLRClassifier.html">APLRClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/LogisticRegression.html">LogisticRegression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/LinearRegression.html">LinearRegression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ClassificationTree.html">ClassificationTree</a></li>
@@ -217,6 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aplr.html">Automatic Piecewise Linear Regression (APLR)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
 </ul>
@@ -366,7 +369,8 @@ document.write(`
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#C"><strong>C</strong></a>
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
@@ -381,6 +385,18 @@ document.write(`
  | <a href="#V"><strong>V</strong></a>
  
 </div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/APLRClassifier.html#interpret.glassbox.APLRClassifier">APLRClassifier (class in interpret.glassbox)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/APLRRegressor.html#interpret.glassbox.APLRRegressor">APLRRegressor (class in interpret.glassbox)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -449,6 +465,10 @@ document.write(`
       <ul>
         <li><a href="python/api/PartialDependence.html#interpret.blackbox.PartialDependence.explain_global">(interpret.blackbox.PartialDependence method)</a>
 </li>
+        <li><a href="python/api/APLRClassifier.html#interpret.glassbox.APLRClassifier.explain_global">(interpret.glassbox.APLRClassifier method)</a>
+</li>
+        <li><a href="python/api/APLRRegressor.html#interpret.glassbox.APLRRegressor.explain_global">(interpret.glassbox.APLRRegressor method)</a>
+</li>
         <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.explain_global">(interpret.glassbox.ClassificationTree method)</a>
 </li>
         <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.explain_global">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
@@ -470,6 +490,10 @@ document.write(`
 
       <ul>
         <li><a href="python/api/ShapKernel.html#interpret.blackbox.ShapKernel.explain_local">(interpret.blackbox.ShapKernel method)</a>
+</li>
+        <li><a href="python/api/APLRClassifier.html#interpret.glassbox.APLRClassifier.explain_local">(interpret.glassbox.APLRClassifier method)</a>
+</li>
+        <li><a href="python/api/APLRRegressor.html#interpret.glassbox.APLRRegressor.explain_local">(interpret.glassbox.APLRRegressor method)</a>
 </li>
         <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.explain_local">(interpret.glassbox.ClassificationTree method)</a>
 </li>
@@ -696,9 +720,13 @@ document.write(`
         <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.scale">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
 </li>
       </ul></li>
-      <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.score">score() (interpret.glassbox.ClassificationTree method)</a>
+      <li><a href="python/api/APLRClassifier.html#interpret.glassbox.APLRClassifier.score">score() (interpret.glassbox.APLRClassifier method)</a>
 
       <ul>
+        <li><a href="python/api/APLRRegressor.html#interpret.glassbox.APLRRegressor.score">(interpret.glassbox.APLRRegressor method)</a>
+</li>
+        <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.score">(interpret.glassbox.ClassificationTree method)</a>
+</li>
         <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.score">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
 </li>
         <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.score">(interpret.glassbox.ExplainableBoostingRegressor method)</a>

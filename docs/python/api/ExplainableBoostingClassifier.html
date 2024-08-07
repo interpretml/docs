@@ -1,0 +1,988 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>ExplainableBoostingClassifier &#8212; InterpretML documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python/api/ExplainableBoostingClassifier';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ExplainableBoostingRegressor" href="ExplainableBoostingRegressor.html" />
+    <link rel="prev" title="interpret.glassbox" href="interpret-glassbox.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Getting Started
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../interpret.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="interpret-glassbox.html">interpret.glassbox</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">ExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearRegression.html">LinearRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ClassificationTree.html">ClassificationTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RegressionTree.html">RegressionTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="merge_ebms.html">merge_ebms</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ShapKernel.html">ShapKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LimeTabular.html">LimeTabular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PartialDependence.html">PartialDependence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MorrisSensitivity.html">MorrisSensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-greybox.html">interpret.greybox</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ShapTree.html">ShapTree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-perf.html">interpret.perf</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="RegressionPerf.html">RegressionPerf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ROC.html">ROC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PR.html">PR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-data.html">interpret.data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ClassHistogram.html">ClassHistogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Marginal.html">Marginal</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="link_func.html">link_func</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inv_link.html">inv_link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="measure_interactions.html">measure_interactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interpret-develop.html">interpret.develop</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="debug_mode.html">debug_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="show.html">show</a></li>
+<li class="toctree-l2"><a class="reference internal" href="show_link.html">show_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set_show_addr.html">set_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_show_addr.html">get_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preserve.html">preserve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shutdown_show_server.html">shutdown_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_show_server.html">init_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_show_server.html">status_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set_visualize_provider.html">set_visualize_provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_visualize_provider.html">get_visualize_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ebm.html">Explainable Boosting Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lr.html">Linear Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dt.html">Decision Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../blackbox.html">Blackbox Explainers</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../shap.html">Shapley Additive Explanations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lime.html">Local Interpretable Model-agnostic Explanations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pdp.html">Partial Dependence Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../msa.html">Morris Sensitivity Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../dpebm.html">Differentially Private EBMs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hyperparameters.html">Hyperparameters</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ebm-internals-regression.html">EBM Internals - Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ebm-internals-classification.html">EBM Internals - Binary classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ebm-internals-multiclass.html">EBM Internals - Multiclass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../framework.html">Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment-guide.html">Deployments</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation-guide.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../debugging-guide.html">Logging and Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">What the FAQ</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/interpretable-classification.html">Interpretable Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/interpretable-regression.html">Interpretable Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/interpretable-regression-synthetic.html">Smoothing EBMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/explain-blackbox-classifiers.html">Explain Blackbox Classifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/explain-blackbox-regressors.html">Explain Blackbox Regressors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/merge-ebms.html">Merging EBMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/custom-interactions.html">Custom Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/differential-privacy.html">Differential Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/group-importances.html">Group Importances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/prototype-selection.html">Prototype Selection</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/python/api/ExplainableBoostingClassifier.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ExplainableBoostingClassifier</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="explainableboostingclassifier">
+<h1>ExplainableBoostingClassifier<a class="headerlink" href="#explainableboostingclassifier" title="Permalink to this heading">#</a></h1>
+<p>Link to Algorithm description: <a class="reference internal" href="../../ebm.html"><span class="doc std std-doc">EBM</span></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">interpret.glassbox.</span></span><span class="sig-name descname"><span class="pre">ExplainableBoostingClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_interaction_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outer_bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greedy_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cyclic_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction_smoothing_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_hessian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaves</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotone_constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'log_loss'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier" title="Permalink to this definition">#</a></dt>
+<dd><p>An Explainable Boosting Classifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feature_names</strong> (<em>list of str</em><em>, </em><em>default=None</em>) – List of feature names.</p></li>
+<li><p><strong>feature_types</strong> (<em>list of FeatureType</em><em>, </em><em>default=None</em>) – <p>List of feature types. FeatureType can be:</p>
+<blockquote>
+<div><ul>
+<li><p><cite>None</cite>: Auto-detect</p></li>
+<li><p><cite>’quantile’</cite>: Continuous with equal density bins</p></li>
+<li><p><cite>’rounded_quantile’</cite>: Continuous with quantile bins, but the cut values are rounded when possible</p></li>
+<li><p><cite>’uniform’</cite>: Continuous with equal width bins</p></li>
+<li><p><cite>’winsorized’</cite>: Continuous with equal width bins, but the leftmost and rightmost cut are chosen by quantiles</p></li>
+<li><p><cite>’continuous’</cite>: Use the default binning for continuous features, which is ‘quantile’ currently</p></li>
+<li><p><cite>[List of float]</cite>: Continuous with specified cut values. Eg: [5.5, 8.75]</p></li>
+<li><p><cite>[List of str]</cite>: Ordinal categorical where the order has meaning. Eg: [“low”, “medium”, “high”]</p></li>
+<li><p><cite>’ordinal’</cite>: Ordinal categorical where the order is determined by sorting the feature strings</p></li>
+<li><p><cite>’nominal’</cite>: Categorical where the order has no meaning. Eg: country names</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>max_bins</strong> (<em>int</em><em>, </em><em>default=1024</em>) – Max number of bins per feature for the main effects stage.</p></li>
+<li><p><strong>max_interaction_bins</strong> (<em>int</em><em>, </em><em>default=32</em>) – Max number of bins per feature for interaction terms.</p></li>
+<li><p><strong>interactions</strong> (<em>int</em><em>, </em><em>float</em><em>, or </em><em>list of tuples of feature indices</em><em>, </em><em>default=0.9</em>) – <p>Interaction terms to be included in the model. Options are:</p>
+<blockquote>
+<div><ul>
+<li><p>Integer (1 &lt;= interactions): Count of interactions to be automatically selected</p></li>
+<li><p>Percentage (interactions &lt; 1.0): Determine the integer count of interactions by multiplying the number of features by this percentage</p></li>
+<li><p>List of tuples: The tuples contain the indices of the features within the additive term</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>exclude</strong> (<em>'mains'</em><em> or </em><em>list of tuples of feature indices</em><em>|</em><em>names</em><em>, </em><em>default=None</em>) – Features or terms to be excluded.</p></li>
+<li><p><strong>validation_size</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>default=0.15</em>) – <p>Validation set size. Used for early stopping during boosting, and is needed to create outer bags.</p>
+<blockquote>
+<div><ul>
+<li><p>Integer (1 &lt;= validation_size): Count of samples to put in the validation sets</p></li>
+<li><p>Percentage (validation_size &lt; 1.0): Percentage of the data to put in the validation sets</p></li>
+<li><p>0: Turns off early stopping. Outer bags have no utility. Error bounds will be eliminated</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>outer_bags</strong> (<em>int</em><em>, </em><em>default=14</em>) – Number of outer bags. Outer bags are used to generate error bounds and help with smoothing the graphs.</p></li>
+<li><p><strong>inner_bags</strong> (<em>int</em><em>, </em><em>default=0</em>) – Number of inner bags. 0 turns off inner bagging.</p></li>
+<li><p><strong>learning_rate</strong> (<em>float</em><em>, </em><em>default=0.01</em>) – Learning rate for boosting.</p></li>
+<li><p><strong>greedy_ratio</strong> (<em>float</em><em>, </em><em>default=1.5</em>) – The proportion of greedy boosting steps relative to cyclic boosting steps.
+A value of 0 disables greedy boosting, effectively turning it off.</p></li>
+<li><p><strong>cyclic_progress</strong> (<em>bool</em><em> or </em><em>float</em><em>, </em><em>default=True</em>) – This parameter specifies the proportion of the boosting cycles that will
+actively contribute to improving the model’s performance. It is expressed
+as a bool or float between 0 and 1, with the default set to True(1.0), meaning 100% of
+the cycles are expected to make forward progress. If forward progress is
+not achieved during a cycle, that cycle will not be wasted; instead,
+it will be used to update internal gain calculations related to how effective
+each feature is in predicting the target variable. Setting this parameter
+to a value less than 1.0 can be useful for preventing overfitting.</p></li>
+<li><p><strong>smoothing_rounds</strong> (<em>int</em><em>, </em><em>default=200</em>) – Number of initial highly regularized rounds to set the basic shape of the main effect feature graphs.</p></li>
+<li><p><strong>interaction_smoothing_rounds</strong> (<em>int</em><em>, </em><em>default=50</em>) – Number of initial highly regularized rounds to set the basic shape of the interaction effect feature graphs during fitting.</p></li>
+<li><p><strong>max_rounds</strong> (<em>int</em><em>, </em><em>default=25000</em>) – Total number of boosting rounds with n_terms boosting steps per round.</p></li>
+<li><p><strong>early_stopping_rounds</strong> (<em>int</em><em>, </em><em>default=50</em>) – Number of rounds with no improvement to trigger early stopping. 0 turns off
+early stopping and boosting will occur for exactly max_rounds.</p></li>
+<li><p><strong>early_stopping_tolerance</strong> (<em>float</em><em>, </em><em>default=0.0</em>) – Tolerance that dictates the smallest delta required to be considered an improvement.</p></li>
+<li><p><strong>min_samples_leaf</strong> (<em>int</em><em>, </em><em>default=2</em>) – Minimum number of samples allowed in the leaves.</p></li>
+<li><p><strong>min_hessian</strong> (<em>float</em><em>, </em><em>default=1e-4</em>) – Minimum hessian required to consider a potential split valid.</p></li>
+<li><p><strong>max_leaves</strong> (<em>int</em><em>, </em><em>default=3</em>) – Maximum number of leaves allowed in each tree.</p></li>
+<li><p><strong>monotone_constraints</strong> (<em>list of int</em><em>, </em><em>default=None</em>) – <p>This parameter allows you to specify monotonic constraints for each feature’s
+relationship with the target variable during model fitting. However, it is
+generally recommended to apply monotonic constraints post-fit using the
+<cite>monotonize</cite> function rather than setting them during the fitting process.
+This recommendation is based on the observation that, during fitting,
+the boosting algorithm may compensate for a monotone constraint on one
+feature by utilizing another correlated feature, potentially obscuring
+any monotonic violations.</p>
+<p>If you choose to define monotone constraints, <cite>monotone_constraints</cite>
+should be a list with a length equal to the number of features.
+Each element in the list corresponds to a feature and should take
+one of the following values:</p>
+<blockquote>
+<div><ul>
+<li><p>0: No monotonic constraint is imposed on the corresponding feature’s partial response.</p></li>
+<li><p>+1: The partial response of the corresponding feature should be monotonically increasing with respect to the target.</p></li>
+<li><p>-1: The partial response of the corresponding feature should be monotonically decreasing with respect to the target.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>objective</strong> (<em>str</em><em>, </em><em>default=&quot;log_loss&quot;</em>) – The objective to optimize.</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em><em>, </em><em>default=-2</em>) – Number of jobs to run in parallel. Negative integers are interpreted as following joblib’s formula
+(n_cpus + 1 + n_jobs), just like scikit-learn. Eg: -2 means using all threads except 1.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>default=42</em>) – Random state. None uses device_random and generates non-repeatable sequences.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>classes_</strong> (array of bool, int, or unicode with shape <code class="docutils literal notranslate"><span class="pre">(n_classes,)</span></code>) – The class labels.</p></li>
+<li><p><strong>n_features_in_</strong> (<em>int</em>) – Number of features.</p></li>
+<li><p><strong>feature_names_in_</strong> (<em>List of str</em>) – Resolved feature names. Names can come from feature_names, X, or be auto-generated.</p></li>
+<li><p><strong>feature_types_in_</strong> (<em>List of str</em>) – Resolved feature types. Can be: ‘continuous’, ‘nominal’, or ‘ordinal’.</p></li>
+<li><p><strong>bins_</strong> (List[Union[List[Dict[str, int]], List[array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_cuts,)</span></code>]]]) – Per-feature list that defines how to bin each feature. Each feature in the list contains
+a list of binning resolutions. The first item in the binning resolution list is for binning
+main effect features. If there are more items in the binning resolution list, they define the
+binning for successive levels of resolutions. The item at index 1, if it exists, defines the
+binning for pairs. The last binning resolution defines the bins for all successive interaction levels.
+If the binning resolution list contains dictionaries, then the feature is either a ‘nominal’ or
+‘ordinal’ categorical. If the binning resolution list contains arrays, then the feature is ‘continuous’
+and the arrays will contain float cut points that separate continuous values into bins.</p></li>
+<li><p><strong>feature_bounds_</strong> (array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_features,</span> <span class="pre">2)</span></code>) – min/max bounds for each feature. feature_bounds_[feature_index, 0] is the min value of the feature
+and feature_bounds_[feature_index, 1] is the max value of the feature. Categoricals have min &amp; max
+values of NaN.</p></li>
+<li><p><strong>histogram_edges_</strong> (List of None or array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_hist_edges,)</span></code>) – Per-feature list of the histogram edges. Categorical features contain None within the List
+at their feature index.</p></li>
+<li><p><strong>histogram_weights_</strong> (List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_hist_bins,)</span></code>) – Per-feature list of the total sample weights within each feature’s histogram bins.</p></li>
+<li><p><strong>unique_val_counts_</strong> (array of int with shape <code class="docutils literal notranslate"><span class="pre">(n_features,)</span></code>) – Per-feature count of the number of unique feature values.</p></li>
+<li><p><strong>term_features_</strong> (<em>List of tuples of feature indices</em>) – Additive terms used in the model and their component feature indices.</p></li>
+<li><p><strong>term_names_</strong> (<em>List of str</em>) – List of term names.</p></li>
+<li><p><strong>bin_weights_</strong> (List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code>) – Per-term list of the total sample weights in each term’s tensor bins.</p></li>
+<li><p><strong>bagged_scores_</strong> (List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,</span> <span class="pre">n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins,</span> <span class="pre">n_classes)</span></code> or <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,</span> <span class="pre">n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code>) – Per-term list of the bagged model scores.
+The last dimension of length n_classes is dropped for binary classification.</p></li>
+<li><p><strong>term_scores_</strong> (List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins,</span> <span class="pre">n_classes)</span></code> or <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code>) – Per-term list of the model scores.
+The last dimension of length n_classes is dropped for binary classification.</p></li>
+<li><p><strong>standard_deviations_</strong> (List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins,</span> <span class="pre">n_classes)</span></code> or <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code>) – Per-term list of the standard deviations of the bagged model scores.
+The last dimension of length n_classes is dropped for binary classification.</p></li>
+<li><p><strong>link_</strong> (<em>str</em>) – Link function used to convert the predictions or targets into linear space
+additive scores and vice versa via the inverse link. Possible values include:
+“monoclassification”, “custom_binary”, “custom_ovr”, “custom_multinomial”,
+“mlogit”, “vlogit”, “logit”, “probit”, “cloglog”, “loglog”, “cauchit”</p></li>
+<li><p><strong>link_param_</strong> (<em>float</em>) – Float value that can be used by the link function. For classification it is only used by “custom_classification”.</p></li>
+<li><p><strong>bag_weights_</strong> (array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,)</span></code>) – Per-bag record of the total weight within each bag.</p></li>
+<li><p><strong>best_iteration_</strong> (array of int with shape <code class="docutils literal notranslate"><span class="pre">(n_stages,</span> <span class="pre">n_outer_bags)</span></code>) – The number of boosting iterations performed within each stage until either early stopping, or the max_rounds was reached.
+Normally, the count of main effects boosting iterations will be in best_iteration_[0],
+and the count of interaction boosting iterations will be in best_iteration_[1].</p></li>
+<li><p><strong>intercept_</strong> (array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_classes,)</span></code> or <code class="docutils literal notranslate"><span class="pre">(1,)</span></code>) – Intercept of the model. Binary classification is shape <code class="docutils literal notranslate"><span class="pre">(1,)</span></code>, and multiclass is shape <code class="docutils literal notranslate"><span class="pre">(n_classes,)</span></code>.</p></li>
+<li><p><strong>bagged_intercept_</strong> (array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,</span> <span class="pre">n_classes)</span></code> or <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,)</span></code>) – Bagged intercept of the model. Binary classification is shape <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,)</span></code>, and multiclass is shape <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,</span> <span class="pre">n_classes)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>Makes a deepcopy of the EBM.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The new copy.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.decision_function">
+<span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.decision_function" title="Permalink to this definition">#</a></dt>
+<dd><p>Predict scores from model before calling the link function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – Numpy array for samples.</p></li>
+<li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The sum of the additive term contributions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.eval_terms">
+<span class="sig-name descname"><span class="pre">eval_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.eval_terms" title="Permalink to this definition">#</a></dt>
+<dd><p>The term scores returned will be identical to the local explanation values
+obtained by calling ebm.explain_local(X). Calling
+interpret.utils.inv_link(ebm.eval_terms(X).sum(axis=1) + ebm.intercept_, ebm.link_)
+is equivalent to calling ebm.predict(X) for regression or ebm.predict_proba(X) for classification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> – Numpy array for samples.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>local explanation scores for each term of each sample.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.explain_global">
+<span class="sig-name descname"><span class="pre">explain_global</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.explain_global" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides global explanation for model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – User-defined explanation name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An explanation object,
+visualizing feature-value pairs as horizontal bar chart.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.explain_local">
+<span class="sig-name descname"><span class="pre">explain_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.explain_local" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides local explanations for provided samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – Numpy array for X to explain.</p></li>
+<li><p><strong>y</strong> – Numpy vector for y to explain.</p></li>
+<li><p><strong>name</strong> – User-defined explanation name.</p></li>
+<li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An explanation object, visualizing feature-value pairs
+for each sample as horizontal bar charts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.fit" title="Permalink to this definition">#</a></dt>
+<dd><p>Fits model to provided samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – Numpy array for training samples.</p></li>
+<li><p><strong>y</strong> – Numpy array as training labels.</p></li>
+<li><p><strong>sample_weight</strong> – Optional array of weights per sample. Should be same length as X and y.</p></li>
+<li><p><strong>bags</strong> – Optional bag definitions. The first dimension should have length equal to the number of outer_bags.
+The second dimension should have length equal to the number of samples. The contents should be
++1 for training, -1 for validation, and 0 if not included in the bag. Numbers other than 1 indicate
+how many times to include the sample in the training or validation sets.</p></li>
+<li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Itself.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.monotonize">
+<span class="sig-name descname"><span class="pre">monotonize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increasing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passthrough</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.monotonize" title="Permalink to this definition">#</a></dt>
+<dd><p>Adjusts a term to be monotone using isotonic regression. An important consideration
+is that this function only adjusts a single term and will not modify pairwise terms.
+When a feature needs to be globally monotonic, any pairwise terms that include the feature
+should be excluded from the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>term</strong> – Index or name of the term to monotonize</p></li>
+<li><p><strong>increasing</strong> – ‘auto’ or bool. ‘auto’ decides direction based on Spearman correlation estimate.</p></li>
+<li><p><strong>passthrough</strong> – the process of monotonization can result in a change to the mean response
+of the model. If passthrough is set to 0.0 then the model’s mean response to the
+training set will not change. If passthrough is set to 1.0 then any change to the
+mean response made by monotonization will be passed through to self.intercept_.
+Values between 0 and 1 will result in that percentage being passed through.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Itself.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.predict" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicts on provided samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – Numpy array for samples.</p></li>
+<li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Predicted class label per sample.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.predict_proba">
+<span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.predict_proba" title="Permalink to this definition">#</a></dt>
+<dd><p>Probability estimates on provided samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – Numpy array for samples.</p></li>
+<li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Probability estimate of sample for each class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.remove_features">
+<span class="sig-name descname"><span class="pre">remove_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.remove_features" title="Permalink to this definition">#</a></dt>
+<dd><p>Removes features (and their associated components) from a fitted EBM. Note
+that this will change the structure (i.e., by removing the specified
+indices) of the following components of <code class="docutils literal notranslate"><span class="pre">self</span></code>: <code class="docutils literal notranslate"><span class="pre">histogram_edges_</span></code>,
+<code class="docutils literal notranslate"><span class="pre">histogram_weights_</span></code>, <code class="docutils literal notranslate"><span class="pre">unique_val_counts_</span></code>, <code class="docutils literal notranslate"><span class="pre">bins_</span></code>,
+<code class="docutils literal notranslate"><span class="pre">feature_names_in_</span></code>, <code class="docutils literal notranslate"><span class="pre">feature_types_in_</span></code>, and <code class="docutils literal notranslate"><span class="pre">feature_bounds_</span></code>.
+Also, any terms that use the features being deleted will be deleted.
+The following attributes that the caller passed to the __init__ function are
+not modified: <code class="docutils literal notranslate"><span class="pre">feature_names</span></code>, and <code class="docutils literal notranslate"><span class="pre">feature_types</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>features</strong> – A list or enumerable of feature names or indices or
+booleans indicating which features to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Itself.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.remove_terms">
+<span class="sig-name descname"><span class="pre">remove_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.remove_terms" title="Permalink to this definition">#</a></dt>
+<dd><p>Removes terms (and their associated components) from a fitted EBM. Note
+that this will change the structure (i.e., by removing the specified
+indices) of the following components of <code class="docutils literal notranslate"><span class="pre">self</span></code>: <code class="docutils literal notranslate"><span class="pre">term_features_</span></code>,
+<code class="docutils literal notranslate"><span class="pre">term_names_</span></code>, <code class="docutils literal notranslate"><span class="pre">term_scores_</span></code>, <code class="docutils literal notranslate"><span class="pre">bagged_scores_</span></code>,
+<code class="docutils literal notranslate"><span class="pre">standard_deviations_</span></code>, and <code class="docutils literal notranslate"><span class="pre">bin_weights_</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>terms</strong> – A list (or other enumerable object) of term names or indices or booleans.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Itself.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.scale" title="Permalink to this definition">#</a></dt>
+<dd><p>Scale the individual term contribution by a constant factor. For
+example, you can nullify the contribution of specific terms by setting
+their corresponding weights to zero; this would cause the associated
+global explanations (e.g., variable importance) to also be zero. A
+couple of things are worth noting: 1) this method has no affect on the
+fitted intercept and users will have to change that attribute directly
+(if desired), and 2) reweighting specific term contributions will also
+reweight their related components in a similar manner (e.g., variable
+importance scores, standard deviations, etc.).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>term</strong> – term index or name of the term to be scaled.</p></li>
+<li><p><strong>factor</strong> – The amount to scale the term by.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Itself.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.score">
+<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.score" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the mean accuracy on the given test data and labels.</p>
+<p>In multi-label classification, this is the subset accuracy
+which is a harsh metric since you require for each sample that
+each label set be correctly predicted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Test samples.</p></li>
+<li><p><strong>y</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>n_outputs</em><em>)</em>) – True labels for <cite>X</cite>.</p></li>
+<li><p><strong>sample_weight</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>default=None</em>) – Sample weights.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>score</strong> – Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <cite>y</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.sweep">
+<span class="sig-name descname"><span class="pre">sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.sweep" title="Permalink to this definition">#</a></dt>
+<dd><p>Purges unused elements from a fitted EBM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terms</strong> – Boolean indicating if zeroed terms that do not affect the output
+should be purged from the model.</p></li>
+<li><p><strong>bins</strong> – Boolean indicating if unused bin levels that do not affect the output
+should be purged from the model.</p></li>
+<li><p><strong>features</strong> – Boolean indicating if features that are not used in any terms
+and therefore do not affect the output should be purged from the model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Itself.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.term_importances">
+<span class="sig-name descname"><span class="pre">term_importances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">importance_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'avg_weight'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.term_importances" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides the term importances</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>importance_type</strong> – the type of term importance requested (‘avg_weight’, ‘min_max’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An array term importances with one importance per additive term</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.to_json">
+<span class="sig-name descname"><span class="pre">to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.to_json" title="Permalink to this definition">#</a></dt>
+<dd><p>Exports the model to a JSON text file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> – a path-like object (str or os.PathLike),
+or a file-like object implementing .write().</p></li>
+<li><p><strong>detail</strong> – ‘minimal’, ‘interpretable’, ‘mergeable’, ‘all’</p></li>
+<li><p><strong>indent</strong> – If indent is a non-negative integer or string, then JSON array
+elements and object members will be pretty-printed with that indent
+level. An indent level of 0, negative, or “” will only insert newlines.
+None (the default) selects the most compact representation. Using a
+positive integer indent indents that many spaces per level. If indent
+is a string (such as ”  “), that string is used to indent each level.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.glassbox.ExplainableBoostingClassifier.to_jsonable">
+<span class="sig-name descname"><span class="pre">to_jsonable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ExplainableBoostingClassifier.to_jsonable" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts the model to a JSONable representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>detail</strong> – ‘minimal’, ‘interpretable’, ‘mergeable’, ‘all’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>JSONable object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./python/api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="interpret-glassbox.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">interpret.glassbox</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ExplainableBoostingRegressor.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ExplainableBoostingRegressor</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The InterpretML Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,859 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; InterpretML documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Getting Started
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/LinearRegression.html">LinearRegression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ClassificationTree.html">ClassificationTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/RegressionTree.html">RegressionTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/merge_ebms.html">merge_ebms</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ShapKernel.html">ShapKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/LimeTabular.html">LimeTabular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/PartialDependence.html">PartialDependence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/MorrisSensitivity.html">MorrisSensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-greybox.html">interpret.greybox</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ShapTree.html">ShapTree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-perf.html">interpret.perf</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/RegressionPerf.html">RegressionPerf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ROC.html">ROC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/PR.html">PR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-data.html">interpret.data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/ClassHistogram.html">ClassHistogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/Marginal.html">Marginal</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/link_func.html">link_func</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/inv_link.html">inv_link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/api/measure_interactions.html">measure_interactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-develop.html">interpret.develop</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/api/debug_mode.html">debug_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/show.html">show</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/show_link.html">show_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/set_show_addr.html">set_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/get_show_addr.html">get_show_addr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/preserve.html">preserve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/shutdown_show_server.html">shutdown_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/init_show_server.html">init_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/status_show_server.html">status_show_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/set_visualize_provider.html">set_visualize_provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/api/get_visualize_provider.html">get_visualize_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="shap.html">Shapley Additive Explanations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lime.html">Local Interpretable Model-agnostic Explanations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdp.html">Partial Dependence Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="msa.html">Morris Sensitivity Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dpebm.html">Differentially Private EBMs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hyperparameters.html">Hyperparameters</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ebm-internals-regression.html">EBM Internals - Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ebm-internals-classification.html">EBM Internals - Binary classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ebm-internals-multiclass.html">EBM Internals - Multiclass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment-guide.html">Deployments</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation-guide.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging-guide.html">Logging and Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">What the FAQ</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-classification.html">Interpretable Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-regression.html">Interpretable Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-regression-synthetic.html">Smoothing EBMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/explain-blackbox-classifiers.html">Explain Blackbox Classifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/explain-blackbox-regressors.html">Explain Blackbox Regressors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/merge-ebms.html">Merging EBMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/custom-interactions.html">Custom Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/differential-privacy.html">Differential Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/group-importances.html">Group Importances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/prototype-selection.html">Prototype Selection</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ 
+</div>
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ClassHistogram.html#interpret.data.ClassHistogram">ClassHistogram (class in interpret.data)</a>
+</li>
+      <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree">ClassificationTree (class in interpret.glassbox)</a>
+</li>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.copy">copy() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.copy">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.copy">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.copy">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="framework.html#interpret.provider.DashProvider">DashProvider (class in interpret.provider)</a>
+</li>
+      <li><a href="framework.html#interpret.api.base.ExplanationMixin.data">data() (interpret.api.base.ExplanationMixin method)</a>
+</li>
+      <li><a href="python/api/debug_mode.html#interpret.develop.debug_mode">debug_mode() (in module interpret.develop)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.decision_function">decision_function() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.decision_function">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier">DPExplainableBoostingClassifier (class in interpret.privacy)</a>
+</li>
+      <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor">DPExplainableBoostingRegressor (class in interpret.privacy)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.eval_terms">eval_terms() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.eval_terms">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.eval_terms">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.eval_terms">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/ClassHistogram.html#interpret.data.ClassHistogram.explain_data">explain_data() (interpret.data.ClassHistogram method)</a>
+
+      <ul>
+        <li><a href="python/api/Marginal.html#interpret.data.Marginal.explain_data">(interpret.data.Marginal method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/MorrisSensitivity.html#interpret.blackbox.MorrisSensitivity.explain_global">explain_global() (interpret.blackbox.MorrisSensitivity method)</a>
+
+      <ul>
+        <li><a href="python/api/PartialDependence.html#interpret.blackbox.PartialDependence.explain_global">(interpret.blackbox.PartialDependence method)</a>
+</li>
+        <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.explain_global">(interpret.glassbox.ClassificationTree method)</a>
+</li>
+        <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.explain_global">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.explain_global">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/LinearRegression.html#interpret.glassbox.LinearRegression.explain_global">(interpret.glassbox.LinearRegression method)</a>
+</li>
+        <li><a href="python/api/LogisticRegression.html#interpret.glassbox.LogisticRegression.explain_global">(interpret.glassbox.LogisticRegression method)</a>
+</li>
+        <li><a href="python/api/RegressionTree.html#interpret.glassbox.RegressionTree.explain_global">(interpret.glassbox.RegressionTree method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.explain_global">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.explain_global">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/LimeTabular.html#interpret.blackbox.LimeTabular.explain_local">explain_local() (interpret.blackbox.LimeTabular method)</a>
+
+      <ul>
+        <li><a href="python/api/ShapKernel.html#interpret.blackbox.ShapKernel.explain_local">(interpret.blackbox.ShapKernel method)</a>
+</li>
+        <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.explain_local">(interpret.glassbox.ClassificationTree method)</a>
+</li>
+        <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.explain_local">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.explain_local">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/LinearRegression.html#interpret.glassbox.LinearRegression.explain_local">(interpret.glassbox.LinearRegression method)</a>
+</li>
+        <li><a href="python/api/LogisticRegression.html#interpret.glassbox.LogisticRegression.explain_local">(interpret.glassbox.LogisticRegression method)</a>
+</li>
+        <li><a href="python/api/RegressionTree.html#interpret.glassbox.RegressionTree.explain_local">(interpret.glassbox.RegressionTree method)</a>
+</li>
+        <li><a href="python/api/ShapTree.html#interpret.greybox.ShapTree.explain_local">(interpret.greybox.ShapTree method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.explain_local">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.explain_local">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/PR.html#interpret.perf.PR.explain_perf">explain_perf() (interpret.perf.PR method)</a>
+
+      <ul>
+        <li><a href="python/api/RegressionPerf.html#interpret.perf.RegressionPerf.explain_perf">(interpret.perf.RegressionPerf method)</a>
+</li>
+        <li><a href="python/api/ROC.html#interpret.perf.ROC.explain_perf">(interpret.perf.ROC method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier">ExplainableBoostingClassifier (class in interpret.glassbox)</a>
+</li>
+      <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor">ExplainableBoostingRegressor (class in interpret.glassbox)</a>
+</li>
+      <li><a href="framework.html#interpret.api.base.ExplainerMixin">ExplainerMixin (class in interpret.api.base)</a>
+</li>
+      <li><a href="framework.html#interpret.api.base.ExplanationMixin">ExplanationMixin (class in interpret.api.base)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.fit">fit() (interpret.glassbox.ClassificationTree method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.fit">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.fit">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/LinearRegression.html#interpret.glassbox.LinearRegression.fit">(interpret.glassbox.LinearRegression method)</a>
+</li>
+        <li><a href="python/api/LogisticRegression.html#interpret.glassbox.LogisticRegression.fit">(interpret.glassbox.LogisticRegression method)</a>
+</li>
+        <li><a href="python/api/RegressionTree.html#interpret.glassbox.RegressionTree.fit">(interpret.glassbox.RegressionTree method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.fit">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.fit">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="framework.html#interpret.provider.DashProvider.from_address">from_address() (interpret.provider.DashProvider class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/get_show_addr.html#interpret.get_show_addr">get_show_addr() (in module interpret)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/get_visualize_provider.html#interpret.get_visualize_provider">get_visualize_provider() (in module interpret)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/init_show_server.html#interpret.init_show_server">init_show_server() (in module interpret)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="framework.html#interpret.provider.InlineProvider">InlineProvider (class in interpret.provider)</a>
+</li>
+      <li><a href="python/api/inv_link.html#interpret.utils.inv_link">inv_link() (in module interpret.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/LimeTabular.html#interpret.blackbox.LimeTabular">LimeTabular (class in interpret.blackbox)</a>
+</li>
+      <li><a href="python/api/LinearRegression.html#interpret.glassbox.LinearRegression">LinearRegression (class in interpret.glassbox)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/link_func.html#interpret.utils.link_func">link_func() (in module interpret.utils)</a>
+</li>
+      <li><a href="python/api/LogisticRegression.html#interpret.glassbox.LogisticRegression">LogisticRegression (class in interpret.glassbox)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/Marginal.html#interpret.data.Marginal">Marginal (class in interpret.data)</a>
+</li>
+      <li><a href="python/api/measure_interactions.html#interpret.utils.measure_interactions">measure_interactions() (in module interpret.utils)</a>
+</li>
+      <li><a href="python/api/merge_ebms.html#interpret.glassbox.merge_ebms">merge_ebms() (in module interpret.glassbox)</a>
+</li>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.monotonize">monotonize() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.monotonize">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.monotonize">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.monotonize">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/MorrisSensitivity.html#interpret.blackbox.MorrisSensitivity">MorrisSensitivity (class in interpret.blackbox)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/PartialDependence.html#interpret.blackbox.PartialDependence">PartialDependence (class in interpret.blackbox)</a>
+</li>
+      <li><a href="python/api/PR.html#interpret.perf.PR">PR (class in interpret.perf)</a>
+</li>
+      <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.predict">predict() (interpret.glassbox.ClassificationTree method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.predict">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.predict">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/LinearRegression.html#interpret.glassbox.LinearRegression.predict">(interpret.glassbox.LinearRegression method)</a>
+</li>
+        <li><a href="python/api/LogisticRegression.html#interpret.glassbox.LogisticRegression.predict">(interpret.glassbox.LogisticRegression method)</a>
+</li>
+        <li><a href="python/api/RegressionTree.html#interpret.glassbox.RegressionTree.predict">(interpret.glassbox.RegressionTree method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.predict">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.predict">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.predict_proba">predict_proba() (interpret.glassbox.ClassificationTree method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.predict_proba">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/LogisticRegression.html#interpret.glassbox.LogisticRegression.predict_proba">(interpret.glassbox.LogisticRegression method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.predict_proba">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/preserve.html#interpret.preserve">preserve() (in module interpret)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/RegressionPerf.html#interpret.perf.RegressionPerf">RegressionPerf (class in interpret.perf)</a>
+</li>
+      <li><a href="python/api/RegressionTree.html#interpret.glassbox.RegressionTree">RegressionTree (class in interpret.glassbox)</a>
+</li>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.remove_features">remove_features() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.remove_features">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.remove_features">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.remove_features">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.remove_terms">remove_terms() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.remove_terms">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.remove_terms">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.remove_terms">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/ROC.html#interpret.perf.ROC">ROC (class in interpret.perf)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.scale">scale() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.scale">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.scale">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.scale">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/ClassificationTree.html#interpret.glassbox.ClassificationTree.score">score() (interpret.glassbox.ClassificationTree method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.score">(interpret.glassbox.ExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.score">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/LinearRegression.html#interpret.glassbox.LinearRegression.score">(interpret.glassbox.LinearRegression method)</a>
+</li>
+        <li><a href="python/api/LogisticRegression.html#interpret.glassbox.LogisticRegression.score">(interpret.glassbox.LogisticRegression method)</a>
+</li>
+        <li><a href="python/api/RegressionTree.html#interpret.glassbox.RegressionTree.score">(interpret.glassbox.RegressionTree method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.score">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.score">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/set_show_addr.html#interpret.set_show_addr">set_show_addr() (in module interpret)</a>
+</li>
+      <li><a href="python/api/set_visualize_provider.html#interpret.set_visualize_provider">set_visualize_provider() (in module interpret)</a>
+</li>
+      <li><a href="python/api/ShapKernel.html#interpret.blackbox.ShapKernel">ShapKernel (class in interpret.blackbox)</a>
+</li>
+      <li><a href="python/api/ShapTree.html#interpret.greybox.ShapTree">ShapTree (class in interpret.greybox)</a>
+</li>
+      <li><a href="python/api/show.html#interpret.show">show() (in module interpret)</a>
+</li>
+      <li><a href="python/api/show_link.html#interpret.show_link">show_link() (in module interpret)</a>
+</li>
+      <li><a href="python/api/shutdown_show_server.html#interpret.shutdown_show_server">shutdown_show_server() (in module interpret)</a>
+</li>
+      <li><a href="python/api/status_show_server.html#interpret.status_show_server">status_show_server() (in module interpret)</a>
+</li>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.sweep">sweep() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.sweep">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.sweep">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.sweep">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.term_importances">term_importances() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.term_importances">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.term_importances">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.term_importances">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.to_json">to_json() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.to_json">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.to_json">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.to_json">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/api/ExplainableBoostingClassifier.html#interpret.glassbox.ExplainableBoostingClassifier.to_jsonable">to_jsonable() (interpret.glassbox.ExplainableBoostingClassifier method)</a>
+
+      <ul>
+        <li><a href="python/api/ExplainableBoostingRegressor.html#interpret.glassbox.ExplainableBoostingRegressor.to_jsonable">(interpret.glassbox.ExplainableBoostingRegressor method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingClassifier.html#interpret.privacy.DPExplainableBoostingClassifier.to_jsonable">(interpret.privacy.DPExplainableBoostingClassifier method)</a>
+</li>
+        <li><a href="python/api/DPExplainableBoostingRegressor.html#interpret.privacy.DPExplainableBoostingRegressor.to_jsonable">(interpret.privacy.DPExplainableBoostingRegressor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="framework.html#interpret.api.base.ExplanationMixin.visualize">visualize() (interpret.api.base.ExplanationMixin method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The InterpretML Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

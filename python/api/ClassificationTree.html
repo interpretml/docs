@@ -161,6 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="interpret-glassbox.html">interpret.glassbox</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="APLRRegressor.html">APLRRegressor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="APLRClassifier.html">APLRClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="LogisticRegression.html">LogisticRegression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="LinearRegression.html">LinearRegression</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">ClassificationTree</a></li>
@@ -220,6 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../ebm.html">Explainable Boosting Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aplr.html">Automatic Piecewise Linear Regression (APLR)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../lr.html">Linear Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dt.html">Decision Tree</a></li>
 </ul>
@@ -466,13 +469,15 @@ visualizing feature-value pairs as horizontal bar chart.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.glassbox.ClassificationTree.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ClassificationTree.fit" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.glassbox.ClassificationTree.fit" title="Permalink to this definition">#</a></dt>
 <dd><p>Fits model to provided instances.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> – Numpy array for training instances.</p></li>
 <li><p><strong>y</strong> – Numpy array as training labels.</p></li>
+<li><p><strong>sample_weight</strong> (<em>optional</em><em>[</em><em>np.ndarray</em><em>]</em>) – (n_samples,) Sample weights. If None (default), then samples are equally weighted. Splits that would create child nodes with net zero or negative weight are ignored while searching for a split in each node.</p></li>
+<li><p><strong>check_input</strong> (<em>bool</em>) – default=True. Allow to bypass several input checking. Don’t use this parameter unless you know what you’re doing.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
