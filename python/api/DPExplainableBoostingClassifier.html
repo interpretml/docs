@@ -433,10 +433,9 @@ If auto-detection is used, a privacy warning will be issued.
 FeatureType can be:</p>
 <blockquote>
 <div><ul>
-<li><p><cite>None</cite>: Auto-detect (privacy budget is not respected!).</p></li>
+<li><p><cite>’auto’</cite>: Auto-detect (privacy budget is not respected!).</p></li>
 <li><p><cite>’continuous’</cite>: Use private continuous binning.</p></li>
 <li><p><cite>[List of str]</cite>: Ordinal categorical where the order has meaning. Eg: [“low”, “medium”, “high”]. Uses private categorical binning.</p></li>
-<li><p><cite>’ordinal’</cite>: Ordinal categorical where the order is determined by sorting the feature strings. Uses private categorical binning.</p></li>
 <li><p><cite>’nominal’</cite>: Categorical where the order has no meaning. Eg: country names. Uses private categorical binning.</p></li>
 </ul>
 </div></blockquote>
