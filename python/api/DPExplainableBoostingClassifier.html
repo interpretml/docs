@@ -422,7 +422,8 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">interpret.privacy.</span></span><span class="sig-name descname"><span class="pre">DPExplainableBoostingClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outer_bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaves</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">composition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gdp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_budget_frac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">privacy_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier" title="Permalink to this definition">#</a></dt>
-<dd><p>Differentially Private Explainable Boosting Classifier. Note that many arguments are defaulted differently than regular EBMs.</p>
+<dd><p>Differentially Private Explainable Boosting Classifier.</p>
+<p>Note that many arguments are defaulted differently than regular EBMs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -508,8 +509,7 @@ Normally, the count of main effects boosting iterations will be in best_iteratio
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.copy" title="Permalink to this definition">#</a></dt>
-<dd><p>Makes a deepcopy of the EBM.</p>
-<p>Args:</p>
+<dd><p>Make a deepcopy of the EBM.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The new copy.</p>
@@ -524,7 +524,7 @@ Normally, the count of main effects boosting iterations will be in best_iteratio
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> – Numpy array for samples.</p></li>
+<li><p><strong>X</strong> – NumPy array for samples.</p></li>
 <li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
 If samples scores it should be the same length as X.</p></li>
 </ul>
@@ -538,13 +538,12 @@ If samples scores it should be the same length as X.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.eval_terms">
 <span class="sig-name descname"><span class="pre">eval_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.eval_terms" title="Permalink to this definition">#</a></dt>
-<dd><p>The term scores returned will be identical to the local explanation values
-obtained by calling ebm.explain_local(X). Calling
-interpret.utils.inv_link(ebm.eval_terms(X).sum(axis=1) + ebm.intercept_, ebm.link_)
+<dd><p>Term scores identical to the local explanation values obtained by calling ebm.explain_local(x).</p>
+<p>Calling interpret.utils.inv_link(ebm.eval_terms(X).sum(axis=1) + ebm.intercept_, ebm.link_)
 is equivalent to calling ebm.predict(X) for regression or ebm.predict_proba(X) for classification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> – Numpy array for samples.</p>
+<dd class="field-odd"><p><strong>X</strong> – NumPy array for samples.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>local explanation scores for each term of each sample.</p>
@@ -555,7 +554,7 @@ is equivalent to calling ebm.predict(X) for regression or ebm.predict_proba(X) f
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.explain_global">
 <span class="sig-name descname"><span class="pre">explain_global</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.explain_global" title="Permalink to this definition">#</a></dt>
-<dd><p>Provides global explanation for model.</p>
+<dd><p>Provide global explanation for model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> – User-defined explanation name.</p>
@@ -570,12 +569,12 @@ visualizing feature-value pairs as horizontal bar chart.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.explain_local">
 <span class="sig-name descname"><span class="pre">explain_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.explain_local" title="Permalink to this definition">#</a></dt>
-<dd><p>Provides local explanations for provided samples.</p>
+<dd><p>Provide local explanations for provided samples.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> – Numpy array for X to explain.</p></li>
-<li><p><strong>y</strong> – Numpy vector for y to explain.</p></li>
+<li><p><strong>X</strong> – NumPy array for X to explain.</p></li>
+<li><p><strong>y</strong> – NumPy vector for y to explain.</p></li>
 <li><p><strong>name</strong> – User-defined explanation name.</p></li>
 <li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
 If samples scores it should be the same length as X.</p></li>
@@ -591,12 +590,12 @@ for each sample as horizontal bar charts.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.fit" title="Permalink to this definition">#</a></dt>
-<dd><p>Fits model to provided samples.</p>
+<dd><p>Fit model to provided samples.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> – Numpy array for training samples.</p></li>
-<li><p><strong>y</strong> – Numpy array as training labels.</p></li>
+<li><p><strong>X</strong> – NumPy array for training samples.</p></li>
+<li><p><strong>y</strong> – NumPy array as training labels.</p></li>
 <li><p><strong>sample_weight</strong> – Optional array of weights per sample. Should be same length as X and y.</p></li>
 <li><p><strong>bags</strong> – Optional bag definitions. The first dimension should have length equal to the number of outer_bags.
 The second dimension should have length equal to the number of samples. The contents should be
@@ -615,8 +614,8 @@ If samples scores it should be the same length as X.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.monotonize">
 <span class="sig-name descname"><span class="pre">monotonize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increasing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passthrough</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.monotonize" title="Permalink to this definition">#</a></dt>
-<dd><p>Adjusts a term to be monotone using isotonic regression. An important consideration
-is that this function only adjusts a single term and will not modify pairwise terms.
+<dd><p>Adjust a term to be monotone using isotonic regression.</p>
+<p>An important consideration is that this function only adjusts a single term and will not modify pairwise terms.
 When a feature needs to be globally monotonic, any pairwise terms that include the feature
 should be excluded from the model.</p>
 <dl class="field-list simple">
@@ -644,7 +643,7 @@ Values between 0 and 1 will result in that percentage being passed through.</p><
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> – Numpy array for samples.</p></li>
+<li><p><strong>X</strong> – NumPy array for samples.</p></li>
 <li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
 If samples scores it should be the same length as X.</p></li>
 </ul>
@@ -662,7 +661,7 @@ If samples scores it should be the same length as X.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> – Numpy array for samples.</p></li>
+<li><p><strong>X</strong> – NumPy array for samples.</p></li>
 <li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
 If samples scores it should be the same length as X.</p></li>
 </ul>
@@ -676,8 +675,8 @@ If samples scores it should be the same length as X.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.remove_features">
 <span class="sig-name descname"><span class="pre">remove_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.remove_features" title="Permalink to this definition">#</a></dt>
-<dd><p>Removes features (and their associated components) from a fitted EBM. Note
-that this will change the structure (i.e., by removing the specified
+<dd><p>Remove features (and their associated components) from a fitted EBM.</p>
+<p>Note that this will change the structure (i.e., by removing the specified
 indices) of the following components of <code class="docutils literal notranslate"><span class="pre">self</span></code>: <code class="docutils literal notranslate"><span class="pre">histogram_edges_</span></code>,
 <code class="docutils literal notranslate"><span class="pre">histogram_weights_</span></code>, <code class="docutils literal notranslate"><span class="pre">unique_val_counts_</span></code>, <code class="docutils literal notranslate"><span class="pre">bins_</span></code>,
 <code class="docutils literal notranslate"><span class="pre">feature_names_in_</span></code>, <code class="docutils literal notranslate"><span class="pre">feature_types_in_</span></code>, and <code class="docutils literal notranslate"><span class="pre">feature_bounds_</span></code>.
@@ -698,8 +697,8 @@ booleans indicating which features to remove.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.remove_terms">
 <span class="sig-name descname"><span class="pre">remove_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.remove_terms" title="Permalink to this definition">#</a></dt>
-<dd><p>Removes terms (and their associated components) from a fitted EBM. Note
-that this will change the structure (i.e., by removing the specified
+<dd><p>Remove terms (and their associated components) from a fitted EBM.</p>
+<p>Note that this will change the structure (i.e., by removing the specified
 indices) of the following components of <code class="docutils literal notranslate"><span class="pre">self</span></code>: <code class="docutils literal notranslate"><span class="pre">term_features_</span></code>,
 <code class="docutils literal notranslate"><span class="pre">term_names_</span></code>, <code class="docutils literal notranslate"><span class="pre">term_scores_</span></code>, <code class="docutils literal notranslate"><span class="pre">bagged_scores_</span></code>,
 <code class="docutils literal notranslate"><span class="pre">standard_deviations_</span></code>, and <code class="docutils literal notranslate"><span class="pre">bin_weights_</span></code>.</p>
@@ -716,8 +715,8 @@ indices) of the following components of <code class="docutils literal notranslat
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.scale">
 <span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.scale" title="Permalink to this definition">#</a></dt>
-<dd><p>Scale the individual term contribution by a constant factor. For
-example, you can nullify the contribution of specific terms by setting
+<dd><p>Scale the individual term contribution by a constant factor.</p>
+<p>For example, you can nullify the contribution of specific terms by setting
 their corresponding weights to zero; this would cause the associated
 global explanations (e.g., variable importance) to also be zero. A
 couple of things are worth noting: 1) this method has no affect on the
@@ -765,7 +764,7 @@ each label set be correctly predicted.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.sweep">
 <span class="sig-name descname"><span class="pre">sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.sweep" title="Permalink to this definition">#</a></dt>
-<dd><p>Purges unused elements from a fitted EBM.</p>
+<dd><p>Purge unused elements from a fitted EBM.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -786,7 +785,7 @@ and therefore do not affect the output should be purged from the model.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.term_importances">
 <span class="sig-name descname"><span class="pre">term_importances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">importance_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'avg_weight'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.term_importances" title="Permalink to this definition">#</a></dt>
-<dd><p>Provides the term importances</p>
+<dd><p>Provide the term importances.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>importance_type</strong> – the type of term importance requested (‘avg_weight’, ‘min_max’)</p>
@@ -800,7 +799,7 @@ and therefore do not affect the output should be purged from the model.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.to_json">
 <span class="sig-name descname"><span class="pre">to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.to_json" title="Permalink to this definition">#</a></dt>
-<dd><p>Exports the model to a JSON text file.</p>
+<dd><p>Export the model to a JSON text file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -812,7 +811,7 @@ elements and object members will be pretty-printed with that indent
 level. An indent level of 0, negative, or “” will only insert newlines.
 None (the default) selects the most compact representation. Using a
 positive integer indent indents that many spaces per level. If indent
-is a string (such as ”  “), that string is used to indent each level.</p></li>
+is a string (such as “t”), that string is used to indent each level.</p></li>
 </ul>
 </dd>
 </dl>
@@ -821,7 +820,7 @@ is a string (such as ”  “), that string is used to indent each level.</p></l
 <dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.to_jsonable">
 <span class="sig-name descname"><span class="pre">to_jsonable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.to_jsonable" title="Permalink to this definition">#</a></dt>
-<dd><p>Converts the model to a JSONable representation.</p>
+<dd><p>Convert the model to a JSONable representation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>detail</strong> – ‘minimal’, ‘interpretable’, ‘mergeable’, ‘all’</p>
