@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="link_func.html">link_func</a></li>
 <li class="toctree-l3"><a class="reference internal" href="inv_link.html">inv_link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="measure_interactions.html">measure_interactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="purify.html">purify</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="interpret-develop.html">interpret.develop</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -668,6 +669,32 @@ If samples scores it should be the same length as X.</p></li>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Probability estimate of sample for each class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.predict_with_uncertainty">
+<span class="sig-name descname"><span class="pre">predict_with_uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.predict_with_uncertainty" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets raw scores and uncertainties from the bagged base models.
+Generates predictions by averaging outputs across all bagged models, and estimates
+uncertainty using the standard deviation of predictions across bags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – ndarray of shape (n_samples, n_features)
+The input samples to predict on.</p></li>
+<li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>ndarray of shape (n_samples, 2)</dt><dd><p>First column contains mean predictions
+Second column contains uncertainties</p>
+</dd>
+</dl>
+</p>
 </dd>
 </dl>
 </dd></dl>

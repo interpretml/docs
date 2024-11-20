@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="link_func.html">link_func</a></li>
 <li class="toctree-l3"><a class="reference internal" href="inv_link.html">inv_link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="measure_interactions.html">measure_interactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="purify.html">purify</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="interpret-develop.html">interpret.develop</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -420,7 +421,7 @@ document.write(`
 <h1>debug_mode<a class="headerlink" href="#debug-mode" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="interpret.develop.debug_mode">
-<span class="sig-prename descclassname"><span class="pre">interpret.develop.</span></span><span class="sig-name descname"><span class="pre">debug_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'log.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.develop.debug_mode" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">interpret.develop.</span></span><span class="sig-name descname"><span class="pre">debug_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'log.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.develop.debug_mode" title="Permalink to this definition">#</a></dt>
 <dd><p>Sets package into debug mode.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -428,7 +429,6 @@ document.write(`
 <li><p><strong>log_filename</strong> – A string that is the filepath to log to, or sys.stderr/sys.stdout.</p></li>
 <li><p><strong>log_level</strong> – Logging level. For example, “DEBUG”.</p></li>
 <li><p><strong>native_debug</strong> – Load debug versions of native libraries if True.</p></li>
-<li><p><strong>simd</strong> – Turns on or off the use of SIMD on systems that support it.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
