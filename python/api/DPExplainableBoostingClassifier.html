@@ -824,6 +824,32 @@ and therefore do not affect the output should be purged from the model.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.to_excel">
+<span class="sig-name descname"><span class="pre">to_excel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.to_excel" title="Permalink to this definition">#</a></dt>
+<dd><p>Exports the model to an Excel workbook.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> – a path-like object (str or os.PathLike),
+or a file-like object implementing .write().</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.to_excel_exportable">
+<span class="sig-name descname"><span class="pre">to_excel_exportable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.to_excel_exportable" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts the model to an Excel exportable representation.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An xlsxwriter.Workbook object with an Excel representation of the model.
+This Workbook can be modified and then exported as any xlsxwriter object
+for advanced usages when custom export is required.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingClassifier.to_json">
 <span class="sig-name descname"><span class="pre">to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingClassifier.to_json" title="Permalink to this definition">#</a></dt>
 <dd><p>Export the model to a JSON text file.</p>

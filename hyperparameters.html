@@ -432,6 +432,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-progress">cyclic_progress</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-bags">outer_bags</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-rounds">max_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing">missing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reg-alpha">reg_alpha</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reg-lambda">reg_lambda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-delta-step">max_delta_step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-scale">gain_scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-cat-samples">min_cat_samples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cat-smooth">cat_smooth</a></li>
 </ul>
             </nav>
         </div>
@@ -449,14 +456,14 @@ document.write(`
 <p>The parameters below are ordered by tuning importance, with the most important hyperparameters to tune at the top, and the least important ones to tune at the bottom.</p>
 <section id="max-leaves">
 <h2>max_leaves<a class="headerlink" href="#max-leaves" title="Permalink to this heading">#</a></h2>
-<p>default: 3 (classification) 2 (regression)</p>
+<p>default: 2</p>
 <p>hyperparameters: [2, 3]</p>
 <p>guidance: Datasets with categoricals or continuous features with many sharp transitions often benefit from max_leaves being 3. Datasets with smooth continuous features tend to perform better with max_leaves set to 2. The max_leaves parameter only applies to main effects.</p>
 </section>
 <section id="smoothing-rounds">
 <h2>smoothing_rounds<a class="headerlink" href="#smoothing-rounds" title="Permalink to this heading">#</a></h2>
 <p>default: 75 (classification) 500 (regression)</p>
-<p>hyperparameters: [0, 25, 50, 75, 100, 150, 200, 350, 500, 750, 1000, 1500, 2000, 4000]</p>
+<p>hyperparameters: [0, 25, 50, 75, 100, 150, 200, 350, 500, 750, 1000, 1500, 2000]</p>
 <p>guidance: Classification seems to prefer a dataset dependent smoothing_rounds value centered around 75. Regression seems to prefer more smoothing_rounds. The default smoothing_rounds for regression of 500 was chosen based on fitting time, however even higher values seem to improve model performance.</p>
 </section>
 <section id="learning-rate">
@@ -467,10 +474,9 @@ document.write(`
 </section>
 <section id="interactions">
 <h2>interactions<a class="headerlink" href="#interactions" title="Permalink to this heading">#</a></h2>
-<p>default: 0.9</p>
-<p>ideal: As many as possible within interpretability limits.</p>
-<p>hyperparameters: [0.0, 0.9, 0.95, 0.99, 100, 250, 1000]</p>
-<p>guidance: Generally, this parameter should be chosen based on interpretability considerations as having too many interactions makes the model less interpretable. A reasonable stragegy is to initially include more interactions than desired, then drop the less important interactions in post processing after fitting. See the <a class="reference internal" href="python/api/ExplainableBoostingClassifier.html"><span class="doc std std-doc">remove_terms</span></a> function. In terms of model performance, introducing more interactions tends to improve model accuracy. Values between 0 and LESS than 1 are interpreted as percentages of the number of features. For example, a dataset with 100 features and an interactions value of 0.7 will automatically detect and use 70 interactions. Values of 1 or higher indicate the exact number of interactions to be detected, so for example 1 would create 1 interaction term, and 50 would create 50.</p>
+<p>default: “3x” (classification), “5x” (regression)</p>
+<p>hyperparameters: [0, “0.5x”, “1x”, “1.5x”, “2x”, “2.5x”, “3x”, “3.5x”, “4x”, “4.5x”, “5x”, “6x”, “7x”, “8x”, “9x”, “10x”, “15x”, “20x”, “25x”]</p>
+<p>guidance: Generally, this parameter should be chosen based on interpretability considerations as having too many interactions makes the model less interpretable. A reasonable strategy is to initially include more interactions than desired, then drop the less important interactions. In terms of model performance, introducing more interactions tends to improve model accuracy. String values that begin with a float and have a trailing “x” are interpreted as multiples of the number of features. For example, a dataset with 100 features and an interactions value of “1.5x” will automatically detect and use 150 interactions. Integer values of 1 or higher indicate the exact number of interactions to be detected, so for example 1 would create 1 interaction term, and 50 would create 50. For classification “3.5x” seems to be a good average multiple. For regression “25x” to “50x”seems to be a good average multiple in terms of model performance, however that many interactions would usually be too many for interpretability reasons.</p>
 </section>
 <section id="inner-bags">
 <h2>inner_bags<a class="headerlink" href="#inner-bags" title="Permalink to this heading">#</a></h2>
@@ -495,13 +501,13 @@ document.write(`
 <section id="min-samples-leaf">
 <h2>min_samples_leaf<a class="headerlink" href="#min-samples-leaf" title="Permalink to this heading">#</a></h2>
 <p>default: 4</p>
-<p>hyperparameters: [2, 3, 4, 5, 10, 20, 50]</p>
+<p>hyperparameters: [2, 3, 4, 5, 10, 20]</p>
 <p>guidance: The default value usually works well, however experimenting with slightly higher values could potentially enhance generalization on certain datasets. For smaller datasets, having a low value might be better. On larger datasets this parameter seems to have little effect.</p>
 </section>
 <section id="validation-size">
 <h2>validation_size<a class="headerlink" href="#validation-size" title="Permalink to this heading">#</a></h2>
 <p>default: 0.15</p>
-<p>hyperparameters: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]</p>
+<p>hyperparameters: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3]</p>
 <p>guidance: The ideal amount of data to be used as validation is dataset dependent, and should be tuned when possible.</p>
 </section>
 <section id="early-stopping-rounds">
@@ -551,10 +557,46 @@ document.write(`
 </section>
 <section id="max-rounds">
 <h2>max_rounds<a class="headerlink" href="#max-rounds" title="Permalink to this heading">#</a></h2>
-<p>default: 25000</p>
+<p>default: 50000</p>
 <p>ideal: 1000000000 (early stopping should stop long before this point)</p>
 <p>hyperparameters: [1000000000]</p>
 <p>guidance: The max_rounds parameter serves as a limit to prevent excessive training on datasets where improvements taper off. Set this parameter sufficiently high to avoid premature early stopping provided fitting times are reasonable.</p>
+</section>
+<section id="missing">
+<h2>missing<a class="headerlink" href="#missing" title="Permalink to this heading">#</a></h2>
+<p>default: ‘separate’</p>
+<p>hyperparameters: [‘separate’, ‘low’, ‘high’, ‘gain’]</p>
+<p>guidance: Needs investigation before we offer guidance on tuning.</p>
+</section>
+<section id="reg-alpha">
+<h2>reg_alpha<a class="headerlink" href="#reg-alpha" title="Permalink to this heading">#</a></h2>
+<p>default: 0.0</p>
+<p>guidance: Needs investigation before we offer guidance on tuning.</p>
+</section>
+<section id="reg-lambda">
+<h2>reg_lambda<a class="headerlink" href="#reg-lambda" title="Permalink to this heading">#</a></h2>
+<p>default: 0.0</p>
+<p>guidance: Needs investigation before we offer guidance on tuning.</p>
+</section>
+<section id="max-delta-step">
+<h2>max_delta_step<a class="headerlink" href="#max-delta-step" title="Permalink to this heading">#</a></h2>
+<p>default: 0.0</p>
+<p>guidance: Needs investigation before we offer guidance on tuning.</p>
+</section>
+<section id="gain-scale">
+<h2>gain_scale<a class="headerlink" href="#gain-scale" title="Permalink to this heading">#</a></h2>
+<p>default: 5.0</p>
+<p>guidance: Needs investigation before we offer guidance on tuning. Until then, experimentally try [0.5, 1.0, 2.0, 5.0]</p>
+</section>
+<section id="min-cat-samples">
+<h2>min_cat_samples<a class="headerlink" href="#min-cat-samples" title="Permalink to this heading">#</a></h2>
+<p>default: 10</p>
+<p>guidance: Needs investigation before we offer guidance on tuning. Until then, experimentally try [5, 10, 15, 20]</p>
+</section>
+<section id="cat-smooth">
+<h2>cat_smooth<a class="headerlink" href="#cat-smooth" title="Permalink to this heading">#</a></h2>
+<p>default: 10.0</p>
+<p>guidance: Needs investigation before we offer guidance on tuning. Until then, experimentally try [5.0, 10.0, 20.0, 100.0, +inf, NaN]</p>
 </section>
 </section>
 
@@ -636,6 +678,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-progress">cyclic_progress</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-bags">outer_bags</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-rounds">max_rounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing">missing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reg-alpha">reg_alpha</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reg-lambda">reg_lambda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-delta-step">max_delta_step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-scale">gain_scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-cat-samples">min_cat_samples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cat-smooth">cat_smooth</a></li>
 </ul>
   </nav></div>
 
