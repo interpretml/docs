@@ -525,6 +525,21 @@ Normally, the count of main effects boosting iterations will be in best_iteratio
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingRegressor.estimate_mem">
+<span class="sig-name descname"><span class="pre">estimate_mem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingRegressor.estimate_mem" title="Permalink to this definition">#</a></dt>
+<dd><p>Estimate memory usage of the model.
+:param X: dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Estimated memory usage in bytes.
+The estimate does not include the memory from the
+caller’s copy of X, nor the process’s code or other data.
+The estimate will be more accurate for larger datasets.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="interpret.privacy.DPExplainableBoostingRegressor.eval_terms">
 <span class="sig-name descname"><span class="pre">eval_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#interpret.privacy.DPExplainableBoostingRegressor.eval_terms" title="Permalink to this definition">#</a></dt>
 <dd><p>Term scores identical to the local explanation values obtained by calling ebm.explain_local(x).</p>
@@ -586,8 +601,8 @@ for each sample as horizontal bar charts.</p>
 <li><p><strong>X</strong> – NumPy array for training samples.</p></li>
 <li><p><strong>y</strong> – NumPy array as training labels.</p></li>
 <li><p><strong>sample_weight</strong> – Optional array of weights per sample. Should be same length as X and y.</p></li>
-<li><p><strong>bags</strong> – Optional bag definitions. The first dimension should have length equal to the number of outer_bags.
-The second dimension should have length equal to the number of samples. The contents should be
+<li><p><strong>bags</strong> – Optional bag definitions. The first dimension should have length equal to the number of samples.
+The second dimension should have length equal to the number of outer_bags. The contents should be
 +1 for training, -1 for validation, and 0 if not included in the bag. Numbers other than 1 indicate
 how many times to include the sample in the training or validation sets.</p></li>
 <li><p><strong>init_score</strong> – Optional. Either a model that can generate scores or per-sample initialization score.
