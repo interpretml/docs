@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -75,19 +76,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -109,12 +114,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +142,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
+  
   
   
   
@@ -141,8 +158,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="InterpretML documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="InterpretML documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -157,8 +174,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-glassbox.html">interpret.glassbox</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="interpret.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-glassbox.html">interpret.glassbox</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingClassifier.html">ExplainableBoostingClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ExplainableBoostingRegressor.html">ExplainableBoostingRegressor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/APLRRegressor.html">APLRRegressor</a></li>
@@ -169,45 +186,45 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="python/api/RegressionTree.html">RegressionTree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/merge_ebms.html">merge_ebms</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-blackbox.html">interpret.blackbox</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-blackbox.html">interpret.blackbox</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ShapKernel.html">ShapKernel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/LimeTabular.html">LimeTabular</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/PartialDependence.html">PartialDependence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/MorrisSensitivity.html">MorrisSensitivity</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-greybox.html">interpret.greybox</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-greybox.html">interpret.greybox</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ShapTree.html">ShapTree</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-perf.html">interpret.perf</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-perf.html">interpret.perf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/RegressionPerf.html">RegressionPerf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ROC.html">ROC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/PR.html">PR</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-data.html">interpret.data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-data.html">interpret.data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/ClassHistogram.html">ClassHistogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/Marginal.html">Marginal</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-privacy.html">interpret.privacy</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-privacy.html">interpret.privacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/DPExplainableBoostingClassifier.html">DPExplainableBoostingClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/DPExplainableBoostingRegressor.html">DPExplainableBoostingRegressor</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-utils.html">interpret.utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-utils.html">interpret.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/link_func.html">link_func</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/inv_link.html">inv_link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/measure_interactions.html">measure_interactions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/api/purify.html">purify</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-develop.html">interpret.develop</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python/api/interpret-develop.html">interpret.develop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/api/debug_mode.html">debug_mode</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="python/api/show.html">show</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/api/show_link.html">show_link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/api/set_show_addr.html">set_show_addr</a></li>
@@ -219,44 +236,44 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="python/api/set_visualize_provider.html">set_visualize_provider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/api/get_visualize_provider.html">get_visualize_provider</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algorithms.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="glassbox.html">Glassbox Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="ebm.html">Explainable Boosting Machine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aplr.html">Automatic Piecewise Linear Regression (APLR)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lr.html">Linear Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dt.html">Decision Tree</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="blackbox.html">Blackbox Explainers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="shap.html">Shapley Additive Explanations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lime.html">Local Interpretable Model-agnostic Explanations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pdp.html">Partial Dependence Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="msa.html">Morris Sensitivity Analysis</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="privacy.html">Differentially Private Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="dpebm.html">Differentially Private EBMs</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="hyperparameters.html">Hyperparameters</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ebm-internals.html">EBM internals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="ebm-internals-regression.html">EBM Internals - Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ebm-internals-classification.html">EBM Internals - Binary classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ebm-internals-multiclass.html">EBM Internals - Multiclass</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="framework.html">Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployment-guide.html">Deployments</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation-guide.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging-guide.html">Logging and Debugging</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">What the FAQ</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-classification.html">Interpretable Classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-regression.html">Interpretable Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/examples/interpretable-regression-synthetic.html">Smoothing EBMs</a></li>
@@ -268,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="python/examples/group-importances.html">Group Importances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/examples/prototype-selection.html">Prototype Selection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -284,7 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -293,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -375,20 +392,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -415,7 +434,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="what-the-faq">
 <h1>What the FAQ<a class="headerlink" href="#what-the-faq" title="Permalink to this heading">#</a></h1>
@@ -424,8 +443,8 @@ document.write(`
 <p>By default, interpret hosts visualizations on a local web server using Plotly Dash. In some restricted environments, where applications are not allowed to host a local web server, we embed visualizations directly into the notebook. If Interpret did not automatically detect and switch the rendering mode, you can manually embed visualizations in restricted environments with the following code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">interpret.provider</span> <span class="kn">import</span> <span class="n">InlineProvider</span>
-<span class="kn">from</span> <span class="nn">interpret</span> <span class="kn">import</span> <span class="n">set_visualize_provider</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">interpret.provider</span><span class="w"> </span><span class="kn">import</span> <span class="n">InlineProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">interpret</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_visualize_provider</span>
 
 <span class="n">set_visualize_provider</span><span class="p">(</span><span class="n">InlineProvider</span><span class="p">())</span>
 </pre></div>
@@ -434,7 +453,7 @@ document.write(`
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">InlineProvider</span></code> is compatible with a broader range of environments than the default rendering logic in Interpret. However, <em>warning</em>: you may experience slower performance when calling <code class="docutils literal notranslate"><span class="pre">show()</span></code>, and the full interpret dashboard is currently unsupported with <code class="docutils literal notranslate"><span class="pre">InlineProvider</span></code>.</p>
 <h2>How do I generate the full interpret dashboard instead of the small single-explanation dropdown?</h2><p>Make sure you are passing in a <em>list</em> of explanations to show. Note that you can also pass in a single explanation wrapped in a list. Ex:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">interpret</span> <span class="kn">import</span> <span class="n">show</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">interpret</span><span class="w"> </span><span class="kn">import</span> <span class="n">show</span>
 
 <span class="n">show</span><span class="p">(</span><span class="n">ebm_local</span><span class="p">)</span>   <span class="c1"># Returns small dropdown</span>
 <span class="n">show</span><span class="p">([</span> <span class="n">ebm_local</span> <span class="p">])</span> <span class="c1"># Produces interpret dashboard</span>
@@ -539,8 +558,10 @@ Postprocessing is the recommended method, as it prevents the model from compensa
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="debugging-guide.html"
@@ -570,7 +591,7 @@ Postprocessing is the recommended method, as it prevents the model from compensa
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -583,6 +604,7 @@ By The InterpretML Contributors
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -600,7 +622,7 @@ By The InterpretML Contributors
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -609,8 +631,8 @@ By The InterpretML Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
